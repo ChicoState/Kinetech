@@ -11,6 +11,20 @@
 |
 */
 
+/*
+ * Return splash view when project root requested
+ *
+ * @return view('splash');
+ */
 Route::get('/', function () {
     return view('splash');
 });
+
+/*
+ * Route the request '/about' to AboutController@index 
+ * in 'app/Http/Controllers/AboutController.php'
+ * 
+ */
+Route::get('/about', 'AboutController@index');
+
+
