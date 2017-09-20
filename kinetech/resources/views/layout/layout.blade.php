@@ -20,6 +20,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <body>
 	<!-- Include our navbar from 'views/partials/nav.blade.php' -->
 	@include('partials.nav')
 	
