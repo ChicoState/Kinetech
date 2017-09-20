@@ -1,4 +1,7 @@
-.white-border {
-	border-color: white;
-	border-style: solid
+.navbar {
+	background-color: #4caf50!important;
+}
+
+.link:hover {
+	color: #ffeb3b!important;
 }
