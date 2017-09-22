@@ -21,9 +21,10 @@
     <![endif]-->
   </head>
   <body>
-	<!-- Include our navbar from 'views/partials/nav.blade.php' -->
-	@include('partials.nav')
 	
+	<!-- Include partial with logo and search bar -->
+	@include('partials.nav')
+
 	<!-- Yield splash if project root '/' is requested -->
 	@yield('splash')
 

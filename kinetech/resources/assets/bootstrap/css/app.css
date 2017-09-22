@@ -1,3 +1,7 @@
-.link:hover {
+nav {
+	background-color: white!important;
+}
+
+link:hover {
 	color: #ffeb3b!important;
 }
