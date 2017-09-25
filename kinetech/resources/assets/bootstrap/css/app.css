@@ -1,7 +1,7 @@
-.navbar {
-	background-color: #4caf50!important;
+nav {
+	background-color: white!important;
 }
 
-.link:hover {
+link:hover {
 	color: #ffeb3b!important;
 }

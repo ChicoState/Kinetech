@@ -24,9 +24,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-	<!-- Include our navbar from 'views/partials/nav.blade.php' -->
-	@include('partials.nav')
+  <body>
 	
+	<!-- Include partial with logo and search bar -->
+	@include('partials.nav')
+
 	<!-- Yield splash if project root '/' is requested -->
 	@yield('splash')
 
