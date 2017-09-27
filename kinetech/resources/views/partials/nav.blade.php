@@ -18,7 +18,7 @@
       				</li>
     			</ul>
 		    <div class="d-flex flex-column  col-xs-3 col-sm-3 col-md-3 col-lg-8
-                offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1">
+                offset-xs-1 offset-sm-1 offset-md-1 offset-lg-1 p-2">
      			<form class="form-inline my-2 my-lg-0">
             		<input class="form-control mr-sm-2" type="text" placeholder="Search">
             		<button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
