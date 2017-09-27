@@ -7,4 +7,5 @@
 		</h2>
 		<img class="img-fluid rounded" alt="Responsive image" src="{{url('imgs/coming_soon.jpeg')}}">
 	</div>
+</div>
 @endsection

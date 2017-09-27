@@ -13,5 +13,4 @@
 		<li class="nav-item" >
 			<a class="nav-link" style="color:white;" href="#"> Other </a>
 		</li>	
-
 </div>
