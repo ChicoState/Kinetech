@@ -11,10 +11,10 @@
    		    	 		<a class="text-info nav-link" href="/">HOME</a>
 			    	</li>
 			     	<li class="nav-item ">
-        				<a class="text-info nav-link" href="">ABOUT</a>
+        				<a class="text-info nav-link" href="/about">ABOUT</a>
       				</li>
       				<li class="nav-item">
-        				<a class="text-info nav-link disabled" href="">PURCHASE</a>
+        				<a class="text-info nav-link" href="/products">PRODUCTS</a>
       				</li>
     			</ul>
 		    <div class="d-flex flex-column  col-xs-3 col-sm-3 col-md-3 col-lg-8

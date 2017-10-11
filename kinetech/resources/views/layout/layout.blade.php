@@ -34,8 +34,11 @@
 
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
-  
-  @include('partials.footer')
+
+    <!-- Yield view from 'views/products/products.blade.php' if '/products' is requested -->
+    @yield('products')
+    
+    @include('partials.footer')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
