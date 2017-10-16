@@ -24,16 +24,17 @@
     		  </div>
           
     		  <ul class="navbar-nav p-3">
-              @auth
-              {
+              @if(Auth::check())
                 <li class="nav-item " style="margin-left: 300px;">
                   <a class="text-info nav-link" href="">CART</a>
                 </li>
                 <li class="nav-item">
                   <a class="text-info nav-link disabled" href="">PROFILE</a>
                 </li>
-              }
-              @endauth
+                <li class="nav-item">
+                  <a class="text-info nav-link" href="/logout">LOG OUT </a>
+                </li>
+              @else
               <li class="nav-item">
                   <a class="text-info nav-link" id="loginButton" style="margin-left:350px;"> LOGIN </a>
               </li>
@@ -46,7 +47,7 @@
               <li class="nav-item">
                   <a class="text-info nav-link" href="/register" id="registerButton"> REGISTER </a>
               </li>
-              
+              @endif
     			</ul>
   			</div>
   </div>

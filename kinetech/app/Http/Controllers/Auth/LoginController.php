@@ -45,6 +45,12 @@ class LoginController extends Controller
         if(Auth::attempt([
             'email' => $request->input('email'), 
             'password' => $request->input('password'),]));
-            return view('splash'); 
+            return redirect('/'); 
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

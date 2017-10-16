@@ -28,12 +28,19 @@ Route::get('/', function () {
  *
  */
 Route::get('/about', 'AboutController@index');
+
+
 Route::post('/login', 'Auth\LoginController@login');
+Route::any('/logout', 'Auth\LoginController@logout');
 
 /**
  * Call index function in ProductsController at /products request
  */
 Route::get('/products', 'ProductsController@index');
 
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
