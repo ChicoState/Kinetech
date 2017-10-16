@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 use Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -44,8 +45,19 @@ class LoginController extends Controller
         error_log('post in login controller');
         if(Auth::attempt([
             'email' => $request->input('email'), 
-            'password' => $request->input('password'),]));
-            return redirect('/'); 
+            'password' => $request->input('password'),]))
+        {
+            return redirect('/');
+        }
+        else
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'password' => 'Incorrect password!'
+                ]);
+
+        } 
     }
 
     public function logout()
