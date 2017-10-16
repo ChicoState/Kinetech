@@ -41,8 +41,6 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $email = $request->input('email');
-        error_log('post in login controller');
         if(Auth::attempt([
             'email' => $request->input('email'), 
             'password' => $request->input('password'),]))
