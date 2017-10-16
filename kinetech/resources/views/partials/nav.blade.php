@@ -7,12 +7,12 @@
           <ul class="navbar-nav p-3">
      		 		  <li class="nav-item active">
    		    	 		<a class="text-info nav-link" href="/">HOME</a>
-			    	  </li>
-		     	    <li class="nav-item">
-        				<a class="text-info nav-link" href="">ABOUT</a>
+			    	</li>
+			     	<li class="nav-item ">
+        				<a class="text-info nav-link" href="/about">ABOUT</a>
       				</li>
       				<li class="nav-item">
-        				<a class="text-info nav-link disabled" href="">PURCHASE</a>
+        				<a class="text-info nav-link" href="/products">PRODUCTS</a>
       				</li>
     			</ul>
 

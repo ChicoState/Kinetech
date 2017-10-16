@@ -36,6 +36,7 @@
 	@yield('about')
   <div class="mx-auto">
     @yield('content')
+    @yield('products')
   </div>
   @include('partials.footer')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

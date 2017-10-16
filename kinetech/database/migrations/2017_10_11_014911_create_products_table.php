@@ -17,8 +17,10 @@ class CreateProductsTable extends Migration
             $table->string('sku', 8);
             $table->primary('sku');
             $table->string('description', 150);
-            $table->string('brand', 24);
             $table->string('img', 150);
+            $table->string('brand', 30);
+            $table->string('model', 30);
+            $table->string('color', 30);
             $table->decimal('price',3,2);
             $table->integer('stock');
             $table->timestamps();

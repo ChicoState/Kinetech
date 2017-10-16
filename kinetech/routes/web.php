@@ -23,14 +23,17 @@ Route::get('/', function () {
     return view('splash');
 });
 
-/*
- * Route the request '/about' to AboutController@index 
- * in 'app/Http/Controllers/AboutController.php'
- * 
+/**
+ * Call index function in AboutController at /about request
+ *
  */
 Route::get('/about', 'AboutController@index');
 Route::post('/login', 'Auth\LoginController@login');
 
+/**
+ * Call index function in ProductsController at /products request
+ */
+Route::get('/products', 'ProductsController@index');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
