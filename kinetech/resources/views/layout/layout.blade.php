@@ -15,7 +15,7 @@
     <!--<link href="resources/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
 
      Custom App CSS -->
-    <link href="resources/assets/bootstrap/css/app.css" rel="stylesheet">
+    <link href="public/css/app.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,13 +28,15 @@
 	<!-- Include partial with logo and search bar -->
 	@include('partials.nav')
   <!-- We need this pad to give us clearance below the nav bar. Will need to be refactored later. -->
-  <div id="navPad" style="height: 50px;"></div>
+  <div id="navPad" style="height: 100px;"></div>
 	<!-- Yield splash if project root '/' is requested -->
 	@yield('splash')
 
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
-  
+  <div class="mx-auto">
+    @yield('content')
+  </div>
   @include('partials.footer')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color: rgba(41,43,44,0.8); height: 75px;">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color: rgba(41,43,44,0.8); height: 100px;">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 <a class="navbar-brand" href="#">Kinetech</a>
 <div class="row">
@@ -37,9 +37,9 @@
               <li class="nav-item">
                   <a class="text-info nav-link" id="loginButton" style="margin-left:350px;"> LOGIN </a>
               </li>
-              <form class="form-inline my-2" action="" id="loginForm" style="display:none;">
-                <input class="form-control mr-sm-2" type="text" placeholder="User Name">
-                <input class="form-control mr-sm-2" type="password" placeholder="Password"> 
+              <form class="form-inline my-2" action="login" method="POST" id="loginForm" style="display:none;">
+                <input class="form-control mr-sm-2" type="text" placeholder="Email" name="email">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password"> 
                 <button class="btn btn-sm btn-outline-info" type="submit">Log In </button>
                 <a class="nav-item" id="loginClose" style="margin-left: 5px; color:white;">X</li>
               </form>

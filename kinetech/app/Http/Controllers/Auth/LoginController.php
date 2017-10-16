@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use App\kineUser;
 class LoginController extends Controller
 {
     /*
@@ -19,7 +21,6 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
-
     /**
      * Where to redirect users after login.
      *
@@ -35,5 +36,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function login(Request $request)
+    {
+        $email = $request->input('email');
+        error_log('post in login controller');
+        if(Auth::attempt([
+            'email' => $request->input('email'), 
+            'password' => $request->input('password'),]));
+            return view('splash'); 
     }
 }
