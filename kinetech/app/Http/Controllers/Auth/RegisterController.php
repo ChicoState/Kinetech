@@ -51,6 +51,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+
         ]);
     }
 
@@ -62,14 +63,15 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-
         $username = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        return User::create([
+        User::create([
             'name' => $username,
             'email' => $email,
             'password' => bcrypt($password),
+            'is_admin' => 1,
         ]);
+        return view('splash');
     }
 }
