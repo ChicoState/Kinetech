@@ -28,7 +28,7 @@
 	<!-- Include partial with logo and search bar -->
 	@include('partials.nav')
   <!-- We need this pad to give us clearance below the nav bar. Will need to be refactored later. -->
-  <div id="navPad" style="height: 100px;"></div>
+  <div id="navPad" style="height: 150px;"></div>
 	<!-- Yield splash if project root '/' is requested -->
 	@yield('splash')
 
