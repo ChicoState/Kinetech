@@ -17,7 +17,7 @@
  		<p> {{ $product->model }} </p>
  	</li>
  	<li style="list-style: none;">
- 		<p> {{ $product->price }} </p>
+ 		<p> $ {{ $product->price }} </p>
  	</li>
  </ul>
  @endforeach
