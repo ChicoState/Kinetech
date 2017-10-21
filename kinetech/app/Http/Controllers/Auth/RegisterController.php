@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'name' => $username,
             'email' => $email,
             'password' => bcrypt($password),
-            'is_admin' => 1,
+            'is_admin' => 0,
         ]);
         return view('splash');
     }

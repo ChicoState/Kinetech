@@ -41,12 +41,11 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        error_log('in login controller');
         if(Auth::attempt([
             'email' => $request->input('email'), 
-            'password' => $request->input('password'),]))
-        {
+            'password' => $request->input('password'),]))        
             return redirect('/');
-        }
         else
         {
             return Redirect::back()
@@ -54,7 +53,6 @@ class LoginController extends Controller
                 ->withErrors([
                     'password' => 'Incorrect password!'
                 ]);
-
         } 
     }
 

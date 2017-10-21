@@ -19,6 +19,9 @@
  	<li style="list-style: none;">
  		<p> $ {{ $product->price }} </p>
  	</li>
+ 	<li style="list-style: none; display: inline-block;">
+ 		<img src="/imgs/plus.png" style="height:30px; width: 30px; display: inline;">
+	</li>
  </ul>
  @endforeach
 </div>

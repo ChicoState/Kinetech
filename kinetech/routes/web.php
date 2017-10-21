@@ -14,14 +14,6 @@ Route::get('/register', function() {
 	return view('auth/register', ['as'=> 'register', 'name' => 'Username']);
 });
 Route::post('/register', 'Auth\RegisterController@create');
-/*
- * Return splash view when project root requested
- *
- * @return view('splash');
- */
-Route::get('/', function () {
-    return view('splash');
-});
 
 /**
  * Call index function in AboutController at /about request
@@ -44,3 +36,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+/*
+ * Return splash view when project root requested
+ *
+ * @return view('splash');
+ */
+Route::get('/', function () {
+    return view('splash');
+});
