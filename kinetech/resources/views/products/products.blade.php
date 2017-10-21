@@ -5,7 +5,7 @@
  @foreach($products as $product)
  <ul style="display:inline-block; margin: 3px; max-width: 30%;">
  	<li style="list-style: none; ">
- 		<img  class="productImage" src= "{{ $product->img}}" style="height: 100px; width: 100px;">
+ 		<img  class="productImage" src= "{{ $product->img}}" style="height: 150px; width: 75px;">
  	</li>
  	<li style="list-style: none;">
  		<p> {{ $product->description }} </p>
