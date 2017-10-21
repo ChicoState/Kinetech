@@ -20,7 +20,7 @@
  		<p> $ {{ $product->price }} </p>
  	</li>
  	<li style="list-style: none; display: inline-block;">
- 		<img src="/imgs/plus.png" style="height:30px; width: 30px; display: inline;">
+ 		<img src="/imgs/plus.png" onclick="console.log({{ $product->sku}});" style="height:30px; width: 30px; display: inline;">
 	</li>
  </ul>
  @endforeach
