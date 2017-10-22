@@ -1,38 +1,38 @@
 @extends('layout.layout')
 @section('products')
-<div class="container col-xs-12 col-sm-6 col-md-8 mx-auto" style="overflow: scroll; height: 100%;">
+<div class="container col-xs-12 col-sm-6 col-md-8 mx-auto productsView">
 <h4> PRODUCTS </h4>
  @foreach($products as $product)
  <ul class="product" brand="{{$product->brand }} ">
- 	<li style="list-style: none;">
- 		<img  class="productImage" src= "{{ $product->img}}" style="height: 150px; width: 75px;">
+ 	<li>
+ 		<img  class="productImage" src= "{{ $product->img}}">
  	</li>
- 	<li style="list-style: none;">
+ 	<li>
  		<p> {{ $product->description }} </p>
  	</li>
- 	<li style="list-style: none;">
+ 	<li>
  		<p> {{ $product->brand }} </p>
  	</li>
- 	<li style="list-style: none;">
+ 	<li>
  		<p> {{ $product->model }} </p>
  	</li>
- 	<li style="list-style: none;">
+ 	<li>
  		<p> $ {{ $product->price }} </p>
  	</li>
- 	<li style="list-style: none; display: inline-block;">
- 		<img src="/imgs/plus.png" onclick="console.log({{ $product->sku}});" style="height:30px; width: 30px; display: inline;">
+ 	<li>
+ 		<img class="productPlus" src="/imgs/plus.png" onclick="console.log({{ $product->sku}});">
 	</li>
  </ul>
  @endforeach
 </div>
 @endsection
 @section('productFilter')
-	<div class="container col-xs-4 col-md-2 mx-1" style="height: 100%; background-color: #E8E8E8; float: left">
+	<div class="productFilterColumn container col-xs-4 col-md-2 mx-1">
 		<div class="mb-3 mt-5" >
 			<h4> Price </h4>
 			<div>
-				<input type="number" name="minPrice" placeholder="Min" style="display: inline; max-width: 40%; margin: 2px;"> - 
-				<input type="number" name="maxPrice" placeholder="Max" style="display: inline; max-width: 40%; margin: 2px;">
+				<input type="number" name="minPrice" placeholder="Min"> - 
+				<input type="number" name="maxPrice" placeholder="Max">
 			</div>
 		</div>
 		<h4> Brands </h4>
