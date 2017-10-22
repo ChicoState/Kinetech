@@ -45,5 +45,6 @@
 			</li>
 		@endforeach
 	</ul>
+	<a href="/products">RESET</button>
 	</div>
 @endsection
