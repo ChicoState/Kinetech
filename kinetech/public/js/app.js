@@ -39,12 +39,51 @@ function filterBrand(newBrand){
 	$('.product').each(function(){
 		brand = $(this).attr('brand').trim();
 		if(brandArray.indexOf(brand) == -1){
-			console.log('hide');
 			$(this).hide();
 		}
 		else{
-			console.log('show');
 			$(this).show();
 		}
 	});
+}
+
+/**
+ * author   Elliott Allmann <elliott.allmann@gmail.com>
+ * @brief   Filters products based on minimum price
+ * @details If a product price is less than the minimum price,
+ *          it is hidden.
+ * 
+ * @param   The minimum price
+ * @return  None
+ */
+function filterPriceMin(minPrice){
+	$('.product').each(function(){
+		price = $(this).attr('price');
+		if(price < minPrice){
+			$(this).hide();
+		}
+		else{
+			$(this).show();
+		}
+	});
+}
+/**
+ * author   Elliott Allmann <elliott.allmann@gmail.com>
+ * @brief   Filters products based on maximum price
+ * @details If a product price is greater than the maximum price,
+ *          it is hidden.
+ * 
+ * @param   The maximum price
+ * @return  None.
+ */
+function filterPriceMax(maxPrice){
+	$('.product').each(function(){
+		price = parseFloat($(this).attr('price'));
+		if(price > parseFloat(maxPrice)){
+			$(this).hide();
+		}
+		else{
+			$(this).show();
+		}
+	});	
 }

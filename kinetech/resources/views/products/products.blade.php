@@ -3,7 +3,7 @@
 <div class="container col-xs-12 col-sm-6 col-md-8 mx-auto productsView">
 <h4> PRODUCTS </h4>
  @foreach($products as $product)
- <ul class="product" brand="{{$product->brand }} ">
+ <ul class="product" brand="{{$product->brand}}" price="{{$product->price}}">
  	<li>
  		<img  class="productImage" src= "{{ $product->img}}">
  	</li>
@@ -31,8 +31,8 @@
 		<div class="mb-3 mt-5" >
 			<h4> Price </h4>
 			<div>
-				<input type="number" name="minPrice" placeholder="Min"> - 
-				<input type="number" name="maxPrice" placeholder="Max">
+				<input type="number" name="minPrice" placeholder="Min" onchange="filterPriceMin(this.value);"> - 
+				<input type="number" name="maxPrice" placeholder="Max" onchange="filterPriceMax(this.value);">
 			</div>
 		</div>
 		<h4> Brands </h4>
