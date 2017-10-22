@@ -3,8 +3,8 @@
 <div class="container col-xs-12 col-sm-6 col-md-8 mx-auto" style="overflow: scroll; height: 100%;">
 <h4> PRODUCTS </h4>
  @foreach($products as $product)
- <ul style="display:inline-block; margin: 3px; max-width: 30%;">
- 	<li style="list-style: none; ">
+ <ul class="product" brand="{{$product->brand }} ">
+ 	<li style="list-style: none;">
  		<img  class="productImage" src= "{{ $product->img}}" style="height: 150px; width: 75px;">
  	</li>
  	<li style="list-style: none;">
@@ -38,7 +38,11 @@
 		<h4> Brands </h4>
 		<ul >
 		@foreach($productBrands as $brand)
-			<li style="list-style: none;"><input type="checkbox" value=" {{ $brand->brand }}"> {{ $brand->brand }} </li>
+			<li style="list-style: none;">
+				<label for="{{ $brand->brand }}">
+					<input type="checkbox"  id="{{$brand->brand}}" value=" {{ $brand->brand }}" onclick="filterBrand({{ $brand->brand }});"> {{ $brand->brand }}
+				</label>
+			</li>
 		@endforeach
 	</ul>
 	</div>
