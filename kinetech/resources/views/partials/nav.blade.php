@@ -39,6 +39,7 @@
                   <a class="text-info nav-link" id="loginButton" style="margin-left:350px;"> LOGIN </a>
               </li>
               <form class="form-inline my-2" action="login" method="POST" id="loginForm" style="display:none;">
+                {{ csrf_field() }}
                 <input class="form-control mr-sm-2" type="text" placeholder="Email" name="email">
                 <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password"> 
                 <button class="btn btn-sm btn-outline-info" type="submit">Log In </button>

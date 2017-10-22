@@ -1,3 +1,34 @@
 .form-control {
   width: 70%;
 }
+.product {
+	display:inline-block;
+	margin: 3px;
+	max-width: 30%;
+}
+.productsView{
+	overflow: scroll; 
+	height: 100%;
+}
+.productImage{
+	height: 150px; 
+	width: 75px;
+}
+.product li{
+	list-style-type: none;
+}
+.productPlus{
+	height:30px; 
+	width: 30px;
+	display: inline;
+}
+.productFilterColumn{
+	height: 100%; 
+	background-color: #E8E8E8; 
+	float: left
+}
+.productFilterColumn input{
+	display: inline;
+	max-width: 40%;
+	margin: 2px;
+}

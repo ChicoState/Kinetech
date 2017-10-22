@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('brand', 30);
             $table->string('model', 30);
             $table->string('color', 30);
-            $table->decimal('price',3,2);
+            $table->decimal('price',5,2);
             $table->integer('stock');
             $table->timestamps();
         });
