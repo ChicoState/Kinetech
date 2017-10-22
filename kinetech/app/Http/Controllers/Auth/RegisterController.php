@@ -62,16 +62,17 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create($data)
+    protected function create(Request $request)
     {
-        $username = $data['name'];
-        $email = $data['email'];
-        $password = $data['password'];
-        return User::create([
+        $username = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+        User::create([
             'name' => $username,
             'email' => $email,
             'password' => bcrypt($password),
             'is_admin' => 0,
         ]);
+        return view('splash');
     }
 }

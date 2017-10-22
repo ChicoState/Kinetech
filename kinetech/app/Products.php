@@ -13,4 +13,10 @@ class Products extends Model
     	$products = DB::table('products')->get();
     	return $products;
     }
+
+    public static function getBrands()
+	{
+		$brands = DB::table('products')->select('brand')->groupBy('brand')->get();
+		return $brands;
+	}
 }

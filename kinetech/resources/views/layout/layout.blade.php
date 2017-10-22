@@ -35,6 +35,7 @@
 
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
+  @yield('productFilter')
   <div class="mx-auto">
     @yield('content')
     @yield('products')

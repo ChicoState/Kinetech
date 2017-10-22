@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('products')
-<div class="container col-lg-8 mx-auto">
+<div class="container col-xs-12 col-sm-6 col-md-8 mx-auto" style="overflow: scroll; height: 100%;">
 <h4> PRODUCTS </h4>
  @foreach($products as $product)
  <ul style="display:inline-block; margin: 3px; max-width: 30%;">
@@ -25,4 +25,21 @@
  </ul>
  @endforeach
 </div>
+@endsection
+@section('productFilter')
+	<div class="container col-xs-4 col-md-2 mx-1" style="height: 100%; background-color: #E8E8E8; float: left">
+		<div class="mb-3 mt-5" >
+			<h4> Price </h4>
+			<div>
+				<input type="number" name="minPrice" placeholder="Min" style="display: inline; max-width: 40%; margin: 2px;"> - 
+				<input type="number" name="maxPrice" placeholder="Max" style="display: inline; max-width: 40%; margin: 2px;">
+			</div>
+		</div>
+		<h4> Brands </h4>
+		<ul >
+		@foreach($productBrands as $brand)
+			<li style="list-style: none;"><input type="checkbox" value=" {{ $brand->brand }}"> {{ $brand->brand }} </li>
+		@endforeach
+	</ul>
+	</div>
 @endsection

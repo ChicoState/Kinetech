@@ -32,11 +32,6 @@ Route::any('/logout', 'Auth\LoginController@logout');
  */
 Route::any('/products', 'ProductsController@index');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
 /*
  * Return splash view when project root requested
  *
