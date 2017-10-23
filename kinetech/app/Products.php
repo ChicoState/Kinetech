@@ -21,7 +21,13 @@ class Products extends Model
 	}
     public static function getCartProducts($data)
     {
-        $products = DB::table('products')->select('*')->where('sku', '00000001')->get();
+        $skuArray = array();
+        foreach($data as $item)
+        {
+            array_push($skuArray, str_pad($item, 8, '00000000', STR_PAD_LEFT));
+        }
+
+        $products = DB::table('products')->select('*')->whereIn('sku', $skuArray)->get();
         return $products;
     }
 }
