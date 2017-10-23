@@ -43,7 +43,7 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Email" name="email">
                 <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password"> 
                 <button class="btn btn-sm btn-outline-info" type="submit">Log In </button>
-                <a class="nav-item" id="loginClose" style="margin-left: 5px; color:white;">X</li>
+                <a class="nav-item" id="loginClose" style="margin-left: 5px; color:white;">X</a>
               </form>
               <li class="nav-item">
                   <a class="text-info nav-link" href="/register" id="registerButton"> REGISTER </a>

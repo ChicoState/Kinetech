@@ -20,7 +20,7 @@
  		<p> $ {{ $product->price }} </p>
  	</li>
  	<li>
- 		<img class="productPlus" src="/imgs/plus.png" onclick="console.log({{ $product->sku}});">
+ 		<img class="productPlus" src="/imgs/plus.png" value="{{$product->sku }}" onclick="addToCart({{ $product->sku}});">
 	</li>
  </ul>
  @endforeach
@@ -45,6 +45,7 @@
 			</li>
 		@endforeach
 	</ul>
-	<a href="/products">RESET</button>
+	<a href="/products">RESET</a>
+	<a href="/cart">CHECKOUT</a>
 	</div>
 @endsection

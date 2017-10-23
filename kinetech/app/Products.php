@@ -19,4 +19,9 @@ class Products extends Model
 		$brands = DB::table('products')->select('brand')->groupBy('brand')->get();
 		return $brands;
 	}
+    public static function getCartProducts($data)
+    {
+        $products = DB::table('products')->select('*')->where('sku', '00000001')->get();
+        return $products;
+    }
 }

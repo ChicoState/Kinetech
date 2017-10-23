@@ -22,8 +22,8 @@ Route::post('/register', 'Auth\RegisterController@create');
  *
  */
 Route::get('/about', 'AboutController@index');
-
-
+Route::get('/cart', 'CartController@index');
+Route::post('/cart', 'CartController@addToCart');
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');
 
