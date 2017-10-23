@@ -22,7 +22,7 @@
 		 	<li>
 	 			<form method="POST" action="/remove">
 	 				{{ csrf_field() }}
-	 				<input type="hidden" name="sku"> {{ $product->sku}}
+	 				<input type="hidden" name="sku" value="{{ $product->sku }}"> 
  					<input type="image" name="minus" class="productMinus" src="/imgs/minus.png" >
  				</form>
 			</li>
