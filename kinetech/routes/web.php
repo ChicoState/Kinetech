@@ -11,6 +11,27 @@
 |
 */
 
+
+Route::get('/register', function() {
+	return view('auth/register', ['as'=> 'register', 'name' => 'Username']);
+});
+Route::post('/register', 'Auth\RegisterController@create');
+
+/**
+ * Call index function in AboutController at /about request
+ *
+ */
+Route::get('/about', 'AboutController@index');
+
+
+Route::post('/login', 'Auth\LoginController@login');
+Route::any('/logout', 'Auth\LoginController@logout');
+
+/**
+ * Call index function in ProductsController at /products request
+ */
+Route::any('/products', 'ProductsController@index');
+
 /*
  * Return splash view when project root requested
  *
@@ -20,9 +41,3 @@ Route::get('/', function () {
     return view('partials.home');
 });
 
-/*
- * Route the request '/about' to AboutController@index
- * in 'app/Http/Controllers/AboutController.php'
- *
- */
-Route::get('/about', 'AboutController@index');
