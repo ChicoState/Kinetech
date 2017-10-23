@@ -19,18 +19,6 @@
 
 <div class="row container">
   <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-8 col-sm-8 col-md-8 col-lg-8 text-center p-5">
-    <h2 style="color:grey;">Kinetech </h2>
-    <h4>comments<br />
-      comments<br />
-      comments<br />
-      comments<br />
-    </h4>
-    <h2 style="color:grey;">Vision</h2>
-    <h4>comments<br />
-      comments<br />
-      comments<br />
-      comments<br />
-    </h4>
     <h2 style="color:grey;">Members </h2>
   </div>
     <div style="border: 1px solid gold; float: left; width: 50%; padding: 10px">
@@ -63,7 +51,7 @@
                 Business Entrepreneurship and Small Business<br />
                 Management. Aside from KineTech, he is actively<br />
                 involved in several local startups and moonlights<br />
-                as an amateur Brazilian  Jiu-Jitsu competitor.</li>
+                as an amateur Brazilian Jiu-Jitsu competitor.</li>
           </ul>
         </li>
       </ul>
@@ -92,7 +80,7 @@
           <a><h3>Elliott Allmann</h3></a>
           <ul class ="hide">
             <li>Elliott Allmann is a senior at California State University,<br />
-                Chico, where he is working on attaining his BA in<br />
+                Chico, where he is working on attaining his BS in<br />
                 Computer Science.</li>
           </ul>
         </li>
@@ -106,7 +94,7 @@
           <a><h3>Jordan Laney</h3></a>
           <ul class ="hide">
             <li>Jordan Laney is a senior at California State University,<br />
-                Chico, where he is working on attaining his BA in<br />
+                Chico, where he is working on attaining his BS in<br />
                 Computer Science.</li>
           </ul>
         </li>
@@ -120,7 +108,7 @@
           <a><h3>Max Schimm</h3></a>
           <ul class ="hide">
             <li>Max Schimm is a senior at California State University,<br />
-                Chico, where he is working on attaining his BA in<br />
+                Chico, where he is working on attaining his BS in<br />
                 Computer Science.</li>
           </ul>
         </li>
@@ -134,7 +122,7 @@
           <a><h3>Brian Sullivan</h3></a>
           <ul class ="hide">
             <li>Brian Sullivan is a senior at California State University,<br />
-                Chico, where he is working on attaining his BA in<br />
+                Chico, where he is working on attaining his BS in<br />
                 Computer Engineering.</li>
           </ul>
         </li>
@@ -148,9 +136,9 @@
           <a><h3>Myungjin Bae</h3></a>
           <ul class ="hide">
             <li>Myungjin Bae is a senior at California State University,<br />
-                Chico, where he is working on attaining his BA in<br />
+                Chico, where he is working on attaining his BS in<br />
                 Computer Science. He is from South Korea after<br />
-                military service, and love soccer.</li>
+                military service, and loves soccer.</li>
           </ul>
         </li>
       </ul>
