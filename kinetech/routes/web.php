@@ -17,14 +17,12 @@
  * @return view('splash');
  */
 Route::get('/', function () {
-    return view('splash');
+    return view('partials.home');
 });
 
 /*
- * Route the request '/about' to AboutController@index 
+ * Route the request '/about' to AboutController@index
  * in 'app/Http/Controllers/AboutController.php'
- * 
+ *
  */
 Route::get('/about', 'AboutController@index');
-
-

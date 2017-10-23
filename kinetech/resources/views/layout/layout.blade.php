@@ -14,7 +14,7 @@
     <!-- Bootstrap -->
     <!--<link href="resources/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-     Custom App CSS 
+     Custom App CSS
     <link href="resources/assets/bootstrap/css/app.css" rel="stylesheet">-->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -25,16 +25,16 @@
     <![endif]-->
   </head>
   <body>
-	
+
 	<!-- Include partial with logo and search bar -->
 	@include('partials.nav')
 
 	<!-- Yield splash if project root '/' is requested -->
-	@yield('splash')
+	@yield('home')
 
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
-  
+
   @include('partials.footer')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -42,4 +42,3 @@
     <script src="resources/assets/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
-

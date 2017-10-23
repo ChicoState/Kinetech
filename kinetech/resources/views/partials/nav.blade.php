@@ -35,7 +35,4 @@
   			</div>
 		</nav>
 	</div>
-	<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-    	<img class="img-fluid" alt="Responsive image" src="resources/assets/imgs/KineTech.png">
-    </div>
 </div>
