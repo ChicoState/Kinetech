@@ -22,9 +22,12 @@ class Products extends Model
     public static function getCartProducts($data)
     {
         $skuArray = array();
-        foreach($data as $item)
+        if(!empty($data))
         {
-            array_push($skuArray, str_pad($item, 8, '0', STR_PAD_LEFT));
+            foreach($data as $item)
+            {
+                array_push($skuArray, str_pad($item, 8, '0', STR_PAD_LEFT));
+            }
         }
 
         $products = DB::table('products')->select('*')->whereIn('sku', $skuArray)->get();

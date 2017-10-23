@@ -27,10 +27,18 @@ class CartController extends Controller
     {
         $sku = $request->input("sku");
         $data = $request->session()->get("cart");
-        if(array_search($sku, $data) === false)
+        if(!empty($data))
         {
-            array_push($data, $sku);
-            $request->session()->put("cart", $data);
+            if(array_search($sku, $data) === false)
+            {
+                array_push($data, $sku);
+                $request->session()->put("cart", $data);
+            }
+        }
+        else 
+        {
+                array_push($data, $sku);
+                $request->session()->put("cart", $data);
         }
         return($data);
     }

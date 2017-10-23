@@ -35,5 +35,14 @@
 @section('cartStats')
 <div class="cartStats container col-xs-4 col-md-2 mx-1">
 	<p> Total: $ {{ $totalPrice }} </p>
+	<div>
+		<h6> Order Details </h6>
+		<div>
+			@foreach($products as $product)
+				<p> {{ $product->brand}} {{ $product->model }} </p>
+			@endforeach
+		</div>	
+	</div>
+	<button type="submit" disabled="true"> Place Order </button>
 </div>
 @endsection
