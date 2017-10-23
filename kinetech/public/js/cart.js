@@ -5,5 +5,13 @@ $(function(){
 });
 
 function addToCart(sku){
-	$.post('/cart', {"sku": sku});
+	$.post('/addToCart', {"sku": sku}, function(data){
+		console.log(data);
+	});
+}
+function removeFromCart(sku)
+{
+	$.post('/removeFromCart', {"sku": sku}, function(data){
+		console.log(data);
+	});
 }

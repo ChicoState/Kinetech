@@ -19,6 +19,9 @@
 		 	<li>
 		 		<p> $ {{ $product->price }} </p>
 		 	</li>
+		 	<li>
+ 				<img class="productMinus" src="/imgs/minus.png" value="{{$product->sku }}" onclick="removeFromCart({{ $product->sku}});">
+			</li>
 		 </ul>
  @endforeach
 </div>

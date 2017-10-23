@@ -30,4 +30,14 @@ class CartController extends Controller
         $data = $request->session()->get("cart");
         return($data);
     }
+
+    public function removeFromCart(Request $request)
+    {
+        $sku = $request->input("sku");
+        $cart = $request->session()->get('cart');
+        $index = array_search($sku, $cart);
+        unset($cart[$index]);
+        $request->session()->put("cart", $cart);
+        return $cart;
+    }
 }

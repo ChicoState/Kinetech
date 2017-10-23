@@ -17,7 +17,7 @@
 .product li{
 	list-style-type: none;
 }
-.productPlus{
+.productPlus, .productMinus{
 	height:30px; 
 	width: 30px;
 	display: inline;
