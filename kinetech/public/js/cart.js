@@ -5,8 +5,5 @@ $(function(){
 });
 
 function addToCart(sku){
-	$.post('/cart', {"sku": sku}, 
-		function(data){
-			console.log(data);
-		});
+	$.post('/cart', {"sku": sku});
 }

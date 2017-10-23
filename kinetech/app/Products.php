@@ -24,7 +24,7 @@ class Products extends Model
         $skuArray = array();
         foreach($data as $item)
         {
-            array_push($skuArray, str_pad($item, 8, '00000000', STR_PAD_LEFT));
+            array_push($skuArray, str_pad($item, 8, '0', STR_PAD_LEFT));
         }
 
         $products = DB::table('products')->select('*')->whereIn('sku', $skuArray)->get();
