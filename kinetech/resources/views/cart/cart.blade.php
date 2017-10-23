@@ -20,7 +20,11 @@
 		 		<p> $ {{ $product->price }} </p>
 		 	</li>
 		 	<li>
- 				<img class="productMinus" src="/imgs/minus.png" value="{{$product->sku }}" onclick="removeFromCart({{ $product->sku}});">
+	 			<form method="POST" action="/remove">
+	 				{{ csrf_field() }}
+	 				<input type="hidden" name="sku"> {{ $product->sku}}
+ 					<input type="image" name="minus" class="productMinus" src="/imgs/minus.png" >
+ 				</form>
 			</li>
 		 </ul>
  @endforeach

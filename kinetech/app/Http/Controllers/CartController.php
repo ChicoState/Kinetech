@@ -38,6 +38,7 @@ class CartController extends Controller
         $index = array_search($sku, $cart);
         unset($cart[$index]);
         $request->session()->put("cart", $cart);
-        return $cart;
+        $products = Products::getCartProducts($cart);
+        return view('cart.cart', ['products' => $products]);
     }
 }

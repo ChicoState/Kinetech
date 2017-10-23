@@ -9,9 +9,3 @@ function addToCart(sku){
 		console.log(data);
 	});
 }
-function removeFromCart(sku)
-{
-	$.post('/removeFromCart', {"sku": sku}, function(data){
-		console.log(data);
-	});
-}
