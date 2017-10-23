@@ -26,8 +26,12 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         $sku = $request->input("sku");
-        $request->session()->push("cart", "$sku");
         $data = $request->session()->get("cart");
+        if(array_search($sku, $data) === false)
+        {
+            array_push($data, $sku);
+            $request->session()->put("cart", $data);
+        }
         return($data);
     }
 
