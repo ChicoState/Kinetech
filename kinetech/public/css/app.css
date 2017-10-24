@@ -17,7 +17,7 @@
 .product li{
 	list-style-type: none;
 }
-.productPlus{
+.productPlus, .productMinus{
 	height:30px; 
 	width: 30px;
 	display: inline;
@@ -31,4 +31,8 @@
 	display: inline;
 	max-width: 40%;
 	margin: 2px;
+}
+.cartStats{
+	background-color: #E8E8E8;
+	float: right;
 }

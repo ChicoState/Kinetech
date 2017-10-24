@@ -19,7 +19,7 @@
     <link   href="{{asset('css/app.css')}}" rel="stylesheet">
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/app.js')}}"></script>
-
+    <script src="{{asset('js/cart.js')}}"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,9 +38,11 @@
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
   @yield('productFilter')
+  @yield('cartStats')
   <div class="mx-auto">
     @yield('content')
     @yield('products')
+    @yield('cartView')
   </div>
   @include('partials.footer')
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
