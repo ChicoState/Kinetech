@@ -37,6 +37,7 @@ class CartController extends Controller
         }
         else 
         {
+                $data = [];
                 array_push($data, $sku);
                 $request->session()->put("cart", $data);
         }
