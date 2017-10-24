@@ -39,5 +39,6 @@ Route::any('/products', 'ProductsController@index');
  * @return view('splash');
  */
 Route::get('/', function () {
-    return view('splash');
+    return view('partials.home');
 });
+

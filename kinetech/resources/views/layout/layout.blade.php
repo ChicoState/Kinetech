@@ -15,6 +15,7 @@
     <!-- Bootstrap -->
     <!--<link href="resources/assets/bootstrap/css/bootstrap.css" rel="stylesheet">
 
+
      Custom App CSS -->
     <link   href="{{asset('css/app.css')}}" rel="stylesheet">
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -28,15 +29,17 @@
     <![endif]-->
   </head>
   <body>
+
 	<!-- Include partial with logo and search bar -->
 	@include('partials.nav')
   <!-- We need this pad to give us clearance below the nav bar. Will need to be refactored later. -->
   <div id="navPad" style="height: 150px;"></div>
 	<!-- Yield splash if project root '/' is requested -->
-	@yield('splash')
+	@yield('home')
 
 	<!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
 	@yield('about')
+
   @yield('productFilter')
   @yield('cartStats')
   <div class="mx-auto">
@@ -51,4 +54,3 @@
 
   </body>
 </html>
-
