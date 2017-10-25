@@ -35,11 +35,11 @@ Route::any('/logout', 'Auth\LoginController@logout');
 Route::any('/products', 'ProductsController@index');
 
 /*
- * Return splash view when project root requested
+ * Return home view when project root requested
  *
- * @return view('splash');
+ * @return view('home');
  */
 Route::get('/', function () {
-    return view('home.home');
+    return view('home');
 });
 
