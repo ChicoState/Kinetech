@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 use App\Cart;
 use App\Products;
+use App\Storage\logs\laravel;
 class CartController extends Controller
 {
     public function __construct()
@@ -18,40 +20,24 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $request->session()->get("cart");
-        $products = Products::getCartProducts($data);
-        return view('cart.cart', ['products' => $products]);
+        return Products::getProducts();
     }
 
-    public function addToCart(Request $request)
+    public function addCart(Request $request)
     {
-        $sku = $request->input("sku");
-        $data = $request->session()->get("cart");
-        if(!empty($data))
-        {
-            if(array_search($sku, $data) === false)
-            {
-                array_push($data, $sku);
-                $request->session()->put("cart", $data);
-            }
-        }
-        else 
-        {
-                $data = [];
-                array_push($data, $sku);
-                $request->session()->put("cart", $data);
-        }
-        return($data);
+    }
+    public function addToCart(Request $request, $sku)
+    {
+
+        $product = Products::find($sku);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->id);
+
+        Session::put('cart', $cart);
+        //dd($request->session()->get('cart'));
+        return redirect()->route('/products');
+
     }
 
-    public function removeFromCart(Request $request)
-    {
-        $sku = $request->input("sku");
-        $cart = $request->session()->get('cart');
-        $index = array_search($sku, $cart);
-        unset($cart[$index]);
-        $request->session()->put("cart", $cart);
-        $products = Products::getCartProducts($cart);
-        return view('cart.cart', ['products' => $products]);
-    }
 }

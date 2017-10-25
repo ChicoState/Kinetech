@@ -22,11 +22,7 @@
 		 		@php($totalPrice += $product->price)
 		 	</li>
 		 	<li>
-	 			<form method="POST" action="/remove">
-	 				{{ csrf_field() }}
-	 				<input type="hidden" name="sku" value="{{ $product->sku }}"> 
- 					<input type="image" name="minus" class="productMinus" src="/imgs/minus.png" >
- 				</form>
+				<img name="minus" class="productMinus" src="/imgs/minus.png" onclick="removeFromCart({{$product->sku }} ">
 			</li>
 		 </ul>
  @endforeach

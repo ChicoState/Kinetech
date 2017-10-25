@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 class Products extends Model
 {
     protected $table = 'products';
+    protected $primaryKey = 'sku';
 
     public static function getProducts()
     {
@@ -16,13 +17,13 @@ class Products extends Model
 
     public static function getBrands()
 	{
-		$brands = DB::table('products')->select('brand')->groupBy('brand')->get();
+        $brands = DB::table('products')->select('brand')->groupBy('brand')->get();
 		return $brands;
 	}
     public static function getCartProducts($data)
     {
-        $skuArray = array();
-        if(!empty($data))
+        $skuArray = [];
+        if(isset($data) && !empty($data))
         {
             foreach($data as $item)
             {
@@ -31,6 +32,5 @@ class Products extends Model
         }
 
         $products = DB::table('products')->select('*')->whereIn('sku', $skuArray)->get();
-        return $products;
     }
 }

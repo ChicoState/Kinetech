@@ -23,8 +23,9 @@ Route::post('/register', 'Auth\RegisterController@create');
  */
 Route::get('/about', 'AboutController@index');
 Route::get('/cart', 'CartController@index');
-Route::post('/addToCart', 'CartController@addToCart');
-Route::post('/remove', 'CartController@removeFromCart');
+Route::get('/addToCart/{id}', ['uses' => 'CartController@addToCart',
+								'as' => 'addToCart',]);
+Route::post('/addCart', 'CartController@addCart');
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');
 
