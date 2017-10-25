@@ -73,6 +73,6 @@ class RegisterController extends Controller
             'password' => bcrypt($password),
             'is_admin' => 0,
         ]);
-        return view('splash');
+        return view('home');
     }
 }
