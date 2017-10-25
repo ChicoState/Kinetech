@@ -27,6 +27,7 @@
 </div>
 @endsection
 @section('productFilter')
+	<div class="productFilterPadding">
 	<div class="productFilterColumn container col-xs-4 col-md-2 mx-1">
 		<div class="mb-3 mt-5" >
 			<h4> Price </h4>
@@ -47,5 +48,6 @@
 	</ul>
 	<a href="/products">RESET</a>
 	<a href="/cart">CHECKOUT</a>
+	</div>
 	</div>
 @endsection
