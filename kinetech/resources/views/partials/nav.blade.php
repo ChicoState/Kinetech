@@ -26,7 +26,8 @@
     		  <ul class="navbar-nav p-3">
               @if(Auth::check())
                 <li class="nav-item " style="margin-left: 300px;">
-                  <a class="text-info nav-link" href="">CART</a>
+                  <a class="text-info nav-link" href="/cart">CART</a>
+                  <span class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQuant : ' ' }} </span>
                 </li>
                 <li class="nav-item">
                   <a class="text-info nav-link disabled" href="">PROFILE</a>

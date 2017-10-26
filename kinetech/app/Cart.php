@@ -11,12 +11,11 @@ class Cart
 
 	public function __construct($oldCart)
 	{
-		if($oldCart)
+		if(isset($oldCart) && !empty($oldCart))
 		{
 			$this->items = $oldCart->items;
 			$this->totalQuant = $oldCart->totalQuant;
 			$this->totalPrice = $oldCart->totalPrice;
-
 		}
 	}
 

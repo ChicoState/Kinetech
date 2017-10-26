@@ -23,7 +23,7 @@ Route::post('/register', 'Auth\RegisterController@create');
  */
 Route::get('/about', 'AboutController@index');
 Route::get('/cart', 'CartController@index');
-Route::get('/addToCart/{id}', ['uses' => 'CartController@addToCart',
+Route::any('/addToCart/{id}', ['uses' => 'CartController@addToCart',
 								'as' => 'addToCart',]);
 Route::post('/addCart', 'CartController@addCart');
 Route::post('/login', 'Auth\LoginController@login');
@@ -32,7 +32,8 @@ Route::any('/logout', 'Auth\LoginController@logout');
 /**
  * Call index function in ProductsController at /products request
  */
-Route::any('/products', 'ProductsController@index');
+Route::any('/products', [ 'uses' =>'ProductsController@index',
+							'as' => 'productsIndex']);
 
 /*
  * Return splash view when project root requested

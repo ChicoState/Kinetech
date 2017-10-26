@@ -19,7 +19,7 @@
  	<li>
  		<p> $ {{ $product->price }} </p>
  	</li>
- 	<li>
+ 	<li> 		
  		<a href="{{ route('addToCart', ['id' => $product->sku ])}}"> Add To Cart </a>
 	</li>
  </ul>
@@ -46,6 +46,6 @@
 		@endforeach
 	</ul>
 	<a href="/products">RESET</a>
-	<a href="/cart" onclick=" return addCart()"> CHECKOUT </a>
+	<a href="/cart"> CHECKOUT </a>
 	</div>
 @endsection

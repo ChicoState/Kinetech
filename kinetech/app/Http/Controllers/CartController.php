@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Cart;
 use App\Products;
 use App\Storage\logs\laravel;
+
+
 class CartController extends Controller
 {
     public function __construct()
@@ -20,24 +22,22 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        return Products::getProducts();
+        if(!Session::has('cart'))
+        {
+            return view('cart.cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('cart.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
-    public function addCart(Request $request)
-    {
-    }
     public function addToCart(Request $request, $sku)
     {
-
-        $product = Products::find($sku);
+        $product = Products::getItem($sku);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($product, $product->id);
-
+        $cart->add($product, $product->sku);
         Session::put('cart', $cart);
-        //dd($request->session()->get('cart'));
-        return redirect()->route('/products');
-
+        return redirect()->route('productsIndex');
     }
-
 }

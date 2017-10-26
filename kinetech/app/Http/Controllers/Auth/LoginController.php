@@ -45,12 +45,6 @@ class LoginController extends Controller
             'email' => $request->input('email'), 
             'password' => $request->input('password'),]))
             {
-                $cart = $request->session()->get('cart');
-                if(!isset($cart))
-                {
-                    $cart = [];
-                }
-                $request->session()->push('cart', $cart);
                 return redirect('/');
             }       
         else

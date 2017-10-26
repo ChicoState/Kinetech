@@ -6,12 +6,16 @@ $(function(){
 });
 
 function addToCart(sku){
-
+	var myURL = "/addToCart/" + sku;
+	console.log(myURL);
+	$.get(myURL, function(data){
+		console.log(data);
+	});
 }
 function removeFromCart(sku){
 	var index = cart.indexOf(sku);
 	if(index != -1){
-		cart.cplice(index, 1);
+		cart.splice(index, 1);
 	}
 }
 
