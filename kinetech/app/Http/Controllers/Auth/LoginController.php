@@ -43,8 +43,16 @@ class LoginController extends Controller
     {
         if(Auth::attempt([
             'email' => $request->input('email'), 
-            'password' => $request->input('password'),]))        
-            return redirect('/');
+            'password' => $request->input('password'),]))
+            {
+                $cart = $request->session()->get('cart');
+                if(!isset($cart))
+                {
+                    $cart = [];
+                }
+                $request->session()->push('cart', $cart);
+                return redirect('/');
+            }       
         else
         {
             return Redirect::back()
@@ -55,8 +63,9 @@ class LoginController extends Controller
         } 
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
+        $request->session()->forget('cart');
         Auth::logout();
         return redirect('/');
     }
