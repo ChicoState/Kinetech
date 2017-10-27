@@ -5,7 +5,7 @@ namespace App;
 class Cart
 {
 	//group of products
-	public $items = null;
+	public $items = [];
 	public $totalQuant = 0;
 	public $totalPrice = 0;
 
@@ -13,10 +13,17 @@ class Cart
 	{
 		if(isset($oldCart) && !empty($oldCart))
 		{
-			$this->items = $oldCart->items;
+			$this->items      = $oldCart->items;
 			$this->totalQuant = $oldCart->totalQuant;
 			$this->totalPrice = $oldCart->totalPrice;
 		}
+	}
+
+	public function resetCart()
+	{
+		$this->totalPrice = 0;
+		$this->totalQuant = 0;
+		$this->items = [];
 	}
 
 	public function add($item, $id)
@@ -30,10 +37,10 @@ class Cart
 			}
 		}
 		$storedItem['qty']++;
-		$storedItem['price'] = $item->price * $storedItem['qty'];
+		$storedItem['price'] = $item->price;
 		$this->items[$id] = $storedItem;
 		$this->totalQuant++;
-		$this->totalPrice += $item->price;
+		$this->totalPrice += $storedItem['price'];
 	}
 
 	public function removeOne($id)
@@ -49,17 +56,22 @@ class Cart
 			else $this->items[$id]['qty'] -= 1;
 		}
 		$this->items = $this->items;
-		$this->totalQuant--;
+		$this->totalQuant -= 1;
 		$this->totalPrice -= $this->items[$id]['price'];
 	}
 
 	public function removeAll($id)
 	{
 		$index = array_search($this->items[$id], $this->items);
+		$price = $this->items[$id]['price'] * $this->items[$id]['qty'];
 		if(isset($index))
 		{
+			if($this->totalPrice < $price)
+			{
+				$this->totalPrice = 0;
+			}
+			else $this->totalPrice -= $price;
 		 	$this->totalQuant -= $this->items[$id]['qty'];
-		 	$this->totalPrice -= ($this->items[$id]['price'] * $this->items[$id]['qty']);
 		 	unset($this->items[$index]);
 		}
 	}
