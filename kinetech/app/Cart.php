@@ -55,14 +55,12 @@ class Cart
 
 	public function removeAll($id)
 	{
-		$items = $this->items;
-		$index = array_search($items[$id], $items);
+		$index = array_search($this->items[$id], $this->items);
 		if(isset($index))
 		{
 		 	$this->totalQuant -= $this->items[$id]['qty'];
 		 	$this->totalPrice -= ($this->items[$id]['price'] * $this->items[$id]['qty']);
-		 	$items = array_splice($this->items, $index);
+		 	unset($this->items[$index]);
 		}
-		$this->items = $items;
 	}
 }
