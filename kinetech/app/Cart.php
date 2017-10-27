@@ -35,4 +35,34 @@ class Cart
 		$this->totalQuant++;
 		$this->totalPrice += $item->price;
 	}
+
+	public function removeOne($id)
+	{
+		if(array_key_exists($id, $this->items))
+		{
+			//if there is only one item left
+			if($this->items[$id]['qty'] == 1)
+			{
+				$this->removeAll($id);
+				return;
+			}
+			else $this->items[$id]['qty'] -= 1;
+		}
+		$this->items = $this->items;
+		$this->totalQuant--;
+		$this->totalPrice -= $this->items[$id]['price'];
+	}
+
+	public function removeAll($id)
+	{
+		$items = $this->items;
+		$index = array_search($items[$id], $items);
+		if(isset($index))
+		{
+		 	$this->totalQuant -= $this->items[$id]['qty'];
+		 	$this->totalPrice -= ($this->items[$id]['price'] * $this->items[$id]['qty']);
+		 	$items = array_splice($this->items, $index);
+		}
+		$this->items = $items;
+	}
 }

@@ -24,6 +24,14 @@
 		<li class>
 			<p> {{ $product['item']->color }} </p>
 		</li>
+		<div class="dropdown">
+<!--		  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    Dropdown button
+		  </button>
+-->
+		    <a class="" href="/removeOne/{{$product['item']->sku }}">Remove One</a>
+		    <a class="" href="/removeAll/{{$product['item']->sku }}">Remove All</a>
+		</div>
 	</ul>
 	@endforeach
 </div>
@@ -31,7 +39,7 @@
 @endsection
 @section('cartStats')
 <div class="cartStats container col-xs-4 col-md-2 mx-1">
-	<p> Total: $ {{ $totalPrice }} </p>
+	<p> {{ $totalPrice }} </p>
 	<button type="submit" disabled="true"> Place Order </button>
 </div>
 @endsection

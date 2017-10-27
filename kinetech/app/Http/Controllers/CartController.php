@@ -40,4 +40,28 @@ class CartController extends Controller
         Session::put('cart', $cart);
         return redirect()->route('productsIndex');
     }
+    
+    public function removeOne($sku)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        if(isset($oldCart) && !empty($oldCart))
+        {
+            $cart = new Cart($oldCart);
+            $cart->removeOne($sku);
+            Session::put('cart', $cart);
+        }
+        return redirect()->route('cartView');
+    }
+
+    public function removeAll($sku)
+    {
+        $oldCart = Session::has('cart') ?  Session::get('cart') : null;
+        if($oldCart)
+        {
+            $cart = new Cart($oldCart);
+            $cart->removeAll($sku);
+            Session::put('cart', $cart);
+        }
+        return redirect()->route('cartView');
+    }
 }
