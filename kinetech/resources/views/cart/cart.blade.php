@@ -38,8 +38,13 @@
 @endif
 @endsection
 @section('cartStats')
+
 <div class="cartStats container col-xs-4 col-md-2 mx-1">
+	@if(Session::has('cart'))
 	<p> {{ $totalPrice }} </p>
+	@else
+	<p> Total: $0 </p>
+	@endif
 	<button type="submit" disabled="true"> Place Order </button>
 </div>
 @endsection
