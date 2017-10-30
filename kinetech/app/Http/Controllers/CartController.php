@@ -38,7 +38,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
         $cart->add($product, $product->sku);
         Session::put('cart', $cart);
-        return redirect()->route('productsIndex');
+        return $cart->getTotalQuantity();
     }
     
     public function removeOne($sku)

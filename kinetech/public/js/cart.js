@@ -1,4 +1,3 @@
-var cart = [];
 $(function(){
 	$.ajaxSetup({
 		headers: { 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')}
@@ -10,6 +9,7 @@ function addToCart(sku){
 	console.log(myURL);
 	$.get(myURL, function(data){
 		console.log(data);
+		document.getElementById("cartItems").innerHTML = data;
 	});
 }
 function removeFromCart(sku){
