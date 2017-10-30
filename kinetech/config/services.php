@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain' => env('mg.kinetechofficial.com'),
+        'secret' => env('key-917eaf1bb713dd371f32eab20e795180'),
     ],
 
     'ses' => [

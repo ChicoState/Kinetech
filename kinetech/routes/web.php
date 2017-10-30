@@ -43,3 +43,9 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('test_mail', function(){
+    Mail::raw('Sending test email from Laravel', function($message){
+        $message->to('foomasri@gmail.com');
+    });
+});
+
