@@ -33,6 +33,7 @@ Route::get('/removeOne/{id}', ['uses' => 'CartController@removeOne',
 Route::get('/removeAll/{id}', ['uses' => 'CartController@removeAll',
 								 'as' => 'removeAll',]);
 
+Route::get('/resetCart', 'CartController@resetCart');
 Route::post('/addCart', 'CartController@addCart');
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');

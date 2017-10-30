@@ -64,4 +64,12 @@ class CartController extends Controller
         }
         return redirect()->route('cartView');
     }
+
+    public function resetCart()
+    {
+        $oldCart = Session::get('cart');
+        $oldCart->resetCart();
+        Session::put('cart', $oldCart);
+        return view('splash');
+    }
 }
