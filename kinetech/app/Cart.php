@@ -66,7 +66,7 @@ class Cart
 		$price = $this->items[$id]['price'] * $this->items[$id]['qty'];
 		if(isset($index))
 		{
-			if($this->totalPrice < $price)
+			if($this->totalPrice <= $price)
 			{
 				$this->totalPrice = 0;
 			}

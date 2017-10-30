@@ -40,7 +40,7 @@
 @section('cartStats')
 
 <div class="cartStats container col-xs-4 col-md-2 mx-1">
-	@if(Session::has('cart'))
+	@if(Session::has('cart') && $totalPrice > 0.01)
 	<p> {{ $totalPrice }} </p>
 	@else
 	<p> Total: $0 </p>
