@@ -45,10 +45,17 @@ Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
 
 /*
- * Return splash view when project root requested
+ * Return home view when project root requested
  *
- * @return view('splash');
+ * @return view('home');
  */
 Route::get('/', function () {
-    return view('splash');
+    return view('home');
 });
+
+Route::get('test_mail', function(){
+    Mail::raw('Sending test email from Laravel', function($message){
+        $message->to('foomasri@gmail.com');
+    });
+});
+

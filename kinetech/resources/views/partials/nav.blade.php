@@ -1,20 +1,20 @@
 <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top" style="background-color: rgba(41,43,44,0.8); height: 100px;">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-<a class="navbar-brand" href="#">Kinetech</a>
-<div class="row">
-	<div class="d-flex flex-col col-xs-5 col-sm-5 col-md-8 col-lg-12">
-  			<div class="collapse navbar-collapse" id="navbarSupportedContent" style="height:70px;">
-          <ul class="navbar-nav p-3">
-     		 		  <li class="nav-item active">
-   		    	 		<a class="text-info nav-link" href="/">HOME</a>
-			    	</li>
-			     	<li class="nav-item ">
-        				<a class="text-info nav-link" href="/about">ABOUT</a>
-      				</li>
-      				<li class="nav-item">
-        				<a class="text-info nav-link" href="/products">PRODUCTS</a>
-      				</li>
-    			</ul>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <a class="navbar-brand" href="#">Kinetech</a>
+    <div class="row">
+        <div class="d-flex flex-col col-xs-5 col-sm-5 col-md-8 col-lg-12">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="height:70px;">
+                <ul class="navbar-nav p-3">
+                    <li class="nav-item active">
+                        <a class="text-info nav-link" href="/">HOME</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="text-info nav-link" href="/about">ABOUT</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="text-info nav-link" href="/products">PRODUCTS</a>
+                    </li>
+                </ul>
 
 		      <div class="d-flex flex-column p-2">
      			    <form class="form-inline my-2">
@@ -56,14 +56,14 @@
 </div>
 </nav>
 <script type="text/javascript" charset="utf-8">
-  $('#loginButton').click(function(){
-    $('#loginForm').show();
-    $('#loginButton').hide();
-    $('#registerButton').hide();
-  });
-  $('#loginClose').click(function(){
-    $('#loginButton').show();
-    $('#registerButton').show();
-    $('#loginForm').hide();
-  });
+    $('#loginButton').click(function(){
+        $('#loginForm').show();
+        $('#loginButton').hide();
+        $('#registerButton').hide();
+    });
+    $('#loginClose').click(function(){
+        $('#loginButton').show();
+        $('#registerButton').show();
+        $('#loginForm').hide();
+    });
 </script>
