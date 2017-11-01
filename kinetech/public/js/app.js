@@ -13,7 +13,7 @@ var maxPrice = -100;
  * @param   The brand we are going to add/sub from array
  * @return  None
  */
-function modifyArray(newBrand){
+function filterBrand(newBrand){
 	var brand = newBrand.value.trim();
 	var index = brandArray.indexOf(brand);
 	if(index == -1){
@@ -22,37 +22,14 @@ function modifyArray(newBrand){
 	else{
 		brandArray.splice(index, 1);
 	}
+	filter();
 }
 
 /**
  * author   Elliott Allmann <elliott.allmann@gmail.com>
- * @brief   Filters all elements on the products page
- * @details Modifys the array of brands to filter by,
- *          and then either hides or shows all objects
- *          on the page depending on their brand's state
- *          in the array
- * 
- * @param   The brand we are going to modify
- * @return  None
- */
-function filterBrand(newBrand){
-	modifyArray(newBrand);
-	$('.product').each(function(){
-		brand = $(this).attr('brand').trim();
-		if(brandArray.indexOf(brand) == -1){
-			$(this).hide();
-		}
-		else{
-			$(this).show();
-		}
-	});
-}
-
-/**
- * author   Elliott Allmann <elliott.allmann@gmail.com>
- * @brief   Filters products based on minimum price
- * @details If a product price is less than the minimum price,
- *          it is hidden.
+ * @brief   Sets a new minimum price
+ * @details Checks to see if the new minPrice is greater than -1. If the
+ *          user passes a negative, just set it to 0.
  * 
  * @param   The minimum price
  * @return  None
@@ -60,19 +37,18 @@ function filterBrand(newBrand){
 function setMinPrice(newMinPrice){
 	if(newMinPrice >= 0){
 		minPrice = newMinPrice;
-		filter();
 	}
 	else{
 		minPrice = 0;
-		filter();
 	}
+	filter();
 }
 
 /**
  * author   Elliott Allmann <elliott.allmann@gmail.com>
- * @brief   Filters products based on maximum price
- * @details If a product price is greater than the maximum price,
- *          it is hidden.
+ * @brief   Sets a new maximum price
+ * @details Checks to see if the new maxPrice is greater than -1. If the
+ *          user passes a negative, just set it to 0.
  * 
  * @param   The maximum price
  * @return  None.
@@ -80,12 +56,11 @@ function setMinPrice(newMinPrice){
 function setMaxPrice(newMaxPrice){
 	if(newMaxPrice >= 0 ){
 		maxPrice = newMaxPrice;
-		filter();
 	}
 	else{
 		maxPrice = 0;
-		filter();
 	}
+	filter();
 		
 }
 function filter(){	
@@ -119,8 +94,20 @@ $('.product').each(function(){
 				$(this).show();
 			}
 		}
+		//filter by the brand
+		if(brandArray.length > 0){
+			var brand = $(this).attr('brand').trim();
+			if(brandArray.indexOf(brand) == -1 ){
+				$(this).hide();
+			}
+			else if(maxPrice >= price && minPrice <=  price){
+				$(this).show();
+			}
+		}
 	});
 }
+
+
 
 function isInt(n){
     return Number(n) === n && n % 1 === 0;
