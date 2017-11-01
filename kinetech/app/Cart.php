@@ -75,4 +75,9 @@ class Cart
 		 	unset($this->items[$index]);
 		}
 	}
+
+	public function getTotalQuantity()
+	{
+		return $this->totalQuant;
+	}
 }
