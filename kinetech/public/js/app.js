@@ -1,7 +1,8 @@
 //global array for storing brands we are showing to the user
 //temp solution, should do this in local storage or the session
 var brandArray = [];
-
+var minPrice = 0;
+var maxPrice = 0;
 /**
  * @author  Elliott Allmann <elliott.allmann@gmail.com>
  * @brief   Modifys the array of Brands
@@ -56,17 +57,16 @@ function filterBrand(newBrand){
  * @param   The minimum price
  * @return  None
  */
-function filterPriceMin(minPrice){
-	$('.product').each(function(){
-		price = $(this).attr('price');
-		if(price < minPrice){
-			$(this).hide();
-		}
-		else{
-			$(this).show();
-		}
-	});
+function setMinPrice(newMinPrice){
+	if(newMinPrice > 0){
+		minPrice = newMinPrice;
+		filter();
+	}
+	else{
+		alert("Please make sure that the min price is a number greater than 0");
+	}
 }
+
 /**
  * author   Elliott Allmann <elliott.allmann@gmail.com>
  * @brief   Filters products based on maximum price
@@ -76,14 +76,54 @@ function filterPriceMin(minPrice){
  * @param   The maximum price
  * @return  None.
  */
-function filterPriceMax(maxPrice){
-	$('.product').each(function(){
-		price = parseFloat($(this).attr('price'));
-		if(price > parseFloat(maxPrice)){
-			$(this).hide();
+function setMaxPrice(newMaxPrice){
+	if(newMaxPrice > 0 ){
+		maxPrice = newMaxPrice;
+		filter();
+	}
+	else{
+		alert("Please make sure that the max price is a number greater than 0.");
+	}
+		
+}
+function filter(){	
+$('.product').each(function(){
+		var price = parseFloat($(this).attr('price'));
+		
+		//if both maxPrice and minPrice are set
+		if(maxPrice > 0 && minPrice > 0){
+			if(price > parseFloat(maxPrice) || price < parseFloat(minPrice)){
+				$(this).hide();
+			}
+			else{
+				$(this).show();
+			}
 		}
-		else{
-			$(this).show();
+		//else if just maxPrice is set
+		else if(maxPrice > 0){
+			if(price > parseFloat(maxPrice)){
+				$(this).hide();
+			}
+			else{
+				$(this).show();
+			}
 		}
-	});	
+		//else if just minPrice is set
+		else if(minPrice > 0){
+			if(price < parseFloat(minPrice)){
+				$(this).hide();
+			}
+			else{
+				$(this).show();
+			}
+		}
+	});
+}
+
+function isInt(n){
+    return Number(n) === n && n % 1 === 0;
+}
+
+function isFloat(n){
+    return Number(n) === n && n % 1 !== 0;
 }
