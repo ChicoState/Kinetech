@@ -16,44 +16,44 @@
                     </li>
                 </ul>
 
-                <div class="d-flex flex-column p-2">
-                    <form class="form-inline my-2">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-
-                <ul class="navbar-nav p-3">
-                    @if(Auth::check())
-                        <li class="nav-item " style="margin-left: 300px;">
-                            <a class="text-info nav-link" href="">CART</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-info nav-link disabled" href="">PROFILE</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-info nav-link" href="/logout">LOG OUT </a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="text-info nav-link" id="loginButton" style="margin-left:350px;"> LOGIN </a>
-                        </li>
-                        <form class="form-inline my-2" action="login" method="POST" id="loginForm" style="display:none;">
-                            {{ csrf_field() }}
-                            <input class="form-control mr-sm-2" type="text" placeholder="Email" name="email">
-                            <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
-                            <button class="btn btn-sm btn-outline-info" type="submit">Log In </button>
-                            <a class="nav-item" id="loginClose" style="margin-left: 5px; color:white;">X</a>
-                        </form>
-                        <li class="nav-item">
-                            <a class="text-info nav-link" href="/register" id="registerButton"> REGISTER </a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-
-        </div>
-    </div>
+		      <div class="d-flex flex-column p-2">
+     			    <form class="form-inline my-2">
+            		<input class="form-control mr-sm-2" type="text" placeholder="Search">
+            		<button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+     			    </form>
+    		  </div>
+          
+    		  <ul class="navbar-nav p-3">
+              @if(Auth::check())
+                <li class="nav-item " style="margin-left: 300px;">
+                  <a class="text-info nav-link" href="/cart">CART</a>
+                  <span class="badge"> {{ Session::has('cart') ? Session::get('cart')->totalQuant : ' ' }} </span>
+                </li>
+                <li class="nav-item">
+                  <a class="text-info nav-link disabled" href="">PROFILE</a>
+                </li>
+                <li class="nav-item">
+                  <a class="text-info nav-link" href="/logout">LOG OUT </a>
+                </li>
+              @else
+              <li class="nav-item">
+                  <a class="text-info nav-link" id="loginButton" style="margin-left:350px;"> LOGIN </a>
+              </li>
+              <form class="form-inline my-2" action="login" method="POST" id="loginForm" style="display:none;">
+                {{ csrf_field() }}
+                <input class="form-control mr-sm-2" type="text" placeholder="Email" name="email">
+                <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password"> 
+                <button class="btn btn-sm btn-outline-info" type="submit">Log In </button>
+                <a class="nav-item" id="loginClose" style="margin-left: 5px; color:white;">X</a>
+              </form>
+              <li class="nav-item">
+                  <a class="text-info nav-link" href="/register" id="registerButton"> REGISTER </a>
+              </li>
+              @endif
+    			</ul>
+  			</div>
+  </div>
+</div>
 </nav>
 <script type="text/javascript" charset="utf-8">
     $('#loginButton').click(function(){

@@ -22,17 +22,27 @@ Route::post('/register', 'Auth\RegisterController@create');
  *
  */
 Route::get('/about', 'AboutController@index');
-Route::get('/home', 'HomeController@index');
-Route::get('/cart', 'CartController@index');
-Route::post('/addToCart', 'CartController@addToCart');
-Route::post('/remove', 'CartController@removeFromCart');
+Route::get('/cart', 		  ['uses' => 'CartController@index',
+								 'as' => 'cartView',]);
+Route::any('/addToCart/{id}', ['uses' => 'CartController@addToCart',
+								 'as' => 'addToCart',]);
+
+Route::get('/removeOne/{id}', ['uses' => 'CartController@removeOne',
+								 'as' => 'removeOne',]);
+
+Route::get('/removeAll/{id}', ['uses' => 'CartController@removeAll',
+								 'as' => 'removeAll',]);
+
+Route::get('/resetCart', 'CartController@resetCart');
+Route::post('/addCart', 'CartController@addCart');
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');
 
 /**
  * Call index function in ProductsController at /products request
  */
-Route::any('/products', 'ProductsController@index');
+Route::any('/products', [ 'uses' =>'ProductsController@index',
+							'as' => 'productsIndex']);
 
 /*
  * Return home view when project root requested

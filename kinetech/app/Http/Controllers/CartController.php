@@ -1,10 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
+use Session;
 use Illuminate\Http\Request;
 use App\Cart;
 use App\Products;
+use App\Storage\logs\laravel;
+
+
 class CartController extends Controller
 {
     public function __construct()
@@ -18,40 +22,54 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $request->session()->get("cart");
-        $products = Products::getCartProducts($data);
-        return view('cart.cart', ['products' => $products]);
+        if(!Session::has('cart'))
+        {
+            return view('cart.cart');
+        }
+        $oldCart = Session::get('cart');
+        $cart = new Cart($oldCart);
+        return view('cart.cart', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
     }
 
-    public function addToCart(Request $request)
+    public function addToCart(Request $request, $sku)
     {
-        $sku = $request->input("sku");
-        $data = $request->session()->get("cart");
-        if(!empty($data))
+        $product = Products::getItem($sku);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->add($product, $product->sku);
+        Session::put('cart', $cart);
+        return redirect()->route('productsIndex');
+    }
+    
+    public function removeOne($sku)
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        if(isset($oldCart) && !empty($oldCart))
         {
-            if(array_search($sku, $data) === false)
-            {
-                array_push($data, $sku);
-                $request->session()->put("cart", $data);
-            }
+            $cart = new Cart($oldCart);
+            $cart->removeOne($sku);
+            Session::put('cart', $cart);
         }
-        else 
-        {
-                $data = [];
-                array_push($data, $sku);
-                $request->session()->put("cart", $data);
-        }
-        return($data);
+        return redirect()->route('cartView');
     }
 
-    public function removeFromCart(Request $request)
+    public function removeAll($sku)
     {
-        $sku = $request->input("sku");
-        $cart = $request->session()->get('cart');
-        $index = array_search($sku, $cart);
-        unset($cart[$index]);
-        $request->session()->put("cart", $cart);
-        $products = Products::getCartProducts($cart);
-        return view('cart.cart', ['products' => $products]);
+        $oldCart = Session::has('cart') ?  Session::get('cart') : null;
+        if($oldCart)
+        {
+            $cart = new Cart($oldCart);
+            $cart->removeAll($sku);
+            Session::put('cart', $cart);
+        }
+        return redirect()->route('cartView');
+    }
+
+    public function resetCart()
+    {
+        $oldCart = Session::get('cart');
+        $oldCart->resetCart();
+        Session::put('cart', $oldCart);
+        return view('splash');
     }
 }

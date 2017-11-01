@@ -19,8 +19,8 @@
  	<li>
  		<p> $ {{ $product->price }} </p>
  	</li>
- 	<li>
- 		<img class="productPlus" src="/imgs/plus.png" value="{{$product->sku }}" onclick="addToCart({{ $product->sku}});">
+ 	<li> 		
+ 		<a href="{{ route('addToCart', ['id' => $product->sku ])}}"> Add To Cart </a>
 	</li>
  </ul>
  @endforeach
@@ -47,7 +47,7 @@
 		@endforeach
 	</ul>
 	<a href="/products">RESET</a>
-	<a href="/cart">CHECKOUT</a>
+	<a href="/cart"> CHECKOUT </a>
 	</div>
 	</div>
 @endsection
