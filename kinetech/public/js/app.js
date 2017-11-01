@@ -1,8 +1,8 @@
 //global array for storing brands we are showing to the user
 //temp solution, should do this in local storage or the session
 var brandArray = [];
-var minPrice = 0;
-var maxPrice = 0;
+var minPrice = -100;
+var maxPrice = -100;
 /**
  * @author  Elliott Allmann <elliott.allmann@gmail.com>
  * @brief   Modifys the array of Brands
@@ -58,12 +58,13 @@ function filterBrand(newBrand){
  * @return  None
  */
 function setMinPrice(newMinPrice){
-	if(newMinPrice > 0){
+	if(newMinPrice >= 0){
 		minPrice = newMinPrice;
 		filter();
 	}
 	else{
-		alert("Please make sure that the min price is a number greater than 0");
+		minPrice = 0;
+		filter();
 	}
 }
 
@@ -77,12 +78,13 @@ function setMinPrice(newMinPrice){
  * @return  None.
  */
 function setMaxPrice(newMaxPrice){
-	if(newMaxPrice > 0 ){
+	if(newMaxPrice >= 0 ){
 		maxPrice = newMaxPrice;
 		filter();
 	}
 	else{
-		alert("Please make sure that the max price is a number greater than 0.");
+		maxPrice = 0;
+		filter();
 	}
 		
 }
@@ -91,7 +93,7 @@ $('.product').each(function(){
 		var price = parseFloat($(this).attr('price'));
 		
 		//if both maxPrice and minPrice are set
-		if(maxPrice > 0 && minPrice > 0){
+		if(maxPrice > -100 && minPrice > -100){
 			if(price > parseFloat(maxPrice) || price < parseFloat(minPrice)){
 				$(this).hide();
 			}
@@ -100,7 +102,7 @@ $('.product').each(function(){
 			}
 		}
 		//else if just maxPrice is set
-		else if(maxPrice > 0){
+		else if(maxPrice > -100){
 			if(price > parseFloat(maxPrice)){
 				$(this).hide();
 			}
@@ -109,7 +111,7 @@ $('.product').each(function(){
 			}
 		}
 		//else if just minPrice is set
-		else if(minPrice > 0){
+		else if(minPrice > -100){
 			if(price < parseFloat(minPrice)){
 				$(this).hide();
 			}
