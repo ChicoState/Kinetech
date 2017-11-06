@@ -20,7 +20,7 @@
  		<p> $ {{ $product->price }} </p>
  	</li>
  	<li> 		
- 		<button onclick="addToCart({{$product->sku }}); "> Add To Cart </a>
+ 		<button class="btn btn-primary" onclick="addToCart({{$product->sku }}); "> Add To Cart </a>
 	</li>
  </ul>
  @endforeach
