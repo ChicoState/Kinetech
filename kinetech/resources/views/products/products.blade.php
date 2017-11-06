@@ -32,8 +32,8 @@
 		<div class="mb-3 mt-5" >
 			<h4> Price </h4>
 			<div>
-				<input type="number" name="minPrice" placeholder="Min" onchange="filterPriceMin(this.value);"> - 
-				<input type="number" name="maxPrice" placeholder="Max" onchange="filterPriceMax(this.value);">
+				<input type="number" name="minPrice" placeholder="Min" onchange="setMinPrice(this.value);"> - 
+				<input type="number" name="maxPrice" placeholder="Max" onchange="setMaxPrice(this.value);">
 			</div>
 		</div>
 		<h4> Brands </h4>
