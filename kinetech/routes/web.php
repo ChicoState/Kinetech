@@ -43,7 +43,7 @@ Route::any('/logout', 'Auth\LoginController@logout');
  */
 Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
-
+Route::get('/dashboard/admin', 'AdminDashController@getAdminProfile');
 /*
  * Return home view when project root requested
  *
