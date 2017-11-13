@@ -70,4 +70,32 @@ class Products extends Model
     {
         return DB::table('products')->max('sku');
     }
+
+    public static function getProduct($id)
+    {
+        return DB::table('products')->where('sku', $id)->first();
+    }
+
+    public static function updateProduct($product)
+    {
+        $sku = $product['sku'];
+        $desc = $product['desc'];
+        $brand = $product['brand'];
+        $model = $product['model'];
+        $color = $product['color'];
+        $price = $product['price'];
+        $stock = $product['stock'];
+        $img   = $product['image'];
+
+        DB::table('products')->where('sku', $sku)->update([
+            'description' => $desc,
+            'brand' => $brand,
+            'model' => $model,
+            'price' => $price,
+            'stock' => $stock,
+            'color' => $color,
+            'img'   => $img,
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        ]);
+    }
 }

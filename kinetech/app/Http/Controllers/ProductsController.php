@@ -48,13 +48,34 @@ class ProductsController extends Controller
         return redirect()->route('adminDash');
     }
 
-    public function updateProductPage()
+    public function updateProductPage($id)
     {
-        return view('prodcuts.updateProduct');
+        $product = Products::getProduct($id);
+        return view('products.updateProduct', ['product' => $product]);
     }
 
     public function updateProduct(Request $request)
     {
+        $sku = $request->input('sku');
+        $desc = $request->input('description');
+        $brand = $request->input('brand');
+        $model = $request->input('model');
+        $color = $request->input('color');
+        $price = $request->input('price');
+        $stock = $request->input('stock');
+        $image = $request->input('image');
 
+        Products::updateProduct([
+            'sku' => $sku,
+            'desc' => $desc,           
+            'brand' => $brand,
+            'model' => $model,
+            'color' => $color,
+            'price' => $price,
+            'stock' => $stock,
+            'image' => $image,
+        ]);
+
+        return redirect('/products');
     }
 }
