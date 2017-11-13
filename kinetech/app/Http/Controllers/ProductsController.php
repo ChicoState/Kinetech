@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Products;
+use App\User;
+use Auth;
+
 
 class ProductsController extends Controller
 {
@@ -16,8 +19,10 @@ class ProductsController extends Controller
     {
     	$products      = Products::getProducts();
         $productBrands = Products::getBrands();
+        $isAdmin       = Auth::user()->is_admin;
         return view('products.products',['products'       => $products,
-                                         'productBrands'  => $productBrands,]);
+                                         'productBrands'  => $productBrands,
+                                         'isAdmin'        => $isAdmin,]);
     }
 
     public function addProductPage()

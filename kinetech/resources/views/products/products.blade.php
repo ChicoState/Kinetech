@@ -22,9 +22,11 @@
  	<li> 		
  		<button class="btn btn-primary" onclick="addToCart({{$product->sku }}); "> Add To Cart </a>
 	</li>
+	@if($isAdmin == 1)
 	<li>
 		<button class="btn btn-primary" onclick="location.href='/updateProduct/{{$product->sku}}';"> Update</button>
 	</li>
+	@endif
  </ul>
  @endforeach
 </div>

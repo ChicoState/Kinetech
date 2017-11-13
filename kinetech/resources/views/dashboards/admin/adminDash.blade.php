@@ -1,5 +1,6 @@
 @extends('layout.layout')
 @section('adminProfileView')
+@if($user['is_admin'] == 1)
 <h4> Hello, {{ ucfirst($user['name']) }} </h4>
 <hr>
 <div>
@@ -20,6 +21,6 @@
 	<a href="/addProduct"> New Item </a>
 	<a href="/updateProduct"> Update Item </a>
 </div>
-
+@endif
 
 @endsection
