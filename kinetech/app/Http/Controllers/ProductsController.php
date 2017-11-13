@@ -19,4 +19,24 @@ class ProductsController extends Controller
         return view('products.products',['products'       => $products,
                                          'productBrands'  => $productBrands,]);
     }
+
+    public function addProductPage()
+    {
+        return view('products.newProduct');
+    }
+
+    public function addProduct(Request $request)
+    {
+
+    }
+
+    public function updateProductPage()
+    {
+        return view('prodcuts.updateProduct');
+    }
+
+    public function updateProduct(Request $request)
+    {
+
+    }
 }

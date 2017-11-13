@@ -60,6 +60,9 @@
         @yield('content')
         @yield('products')
         @yield('cartView')
+        @yield('adminProfileView')
+        @yield('newProduct')
+        @yield('updateProduct')
       </div>
 
   </main>

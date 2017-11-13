@@ -43,7 +43,15 @@ Route::any('/logout', 'Auth\LoginController@logout');
  */
 Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
-Route::get('/dashboard/admin', 'AdminDashController@getAdminProfile');
+Route::post('/updateProfile', 'AdminDashController@updateAdminProfile');
+Route::get('/addProduct', 'ProductsController@addItemPage');
+Route::post('/addProduct', 'ProductsController@addItem');
+Route::get('/updateProduct', 'ProductsController@updateProductPage');
+Route::post('/updateProduct', 'ProductsController@updateProduct');
+
+
+Route::get('/dashboard/admin', ['uses' =>'AdminDashController@getAdminProfile',
+								'as'   => 'adminDash']);
 /*
  * Return home view when project root requested
  *
