@@ -44,8 +44,8 @@ Route::any('/logout', 'Auth\LoginController@logout');
 Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
 Route::post('/updateProfile', 'AdminDashController@updateAdminProfile');
-Route::get('/addProduct', 'ProductsController@addItemPage');
-Route::post('/addProduct', 'ProductsController@addItem');
+Route::get('/addProduct', 'ProductsController@addProductPage');
+Route::post('/addProduct', 'ProductsController@addProduct');
 Route::get('/updateProduct', 'ProductsController@updateProductPage');
 Route::post('/updateProduct', 'ProductsController@updateProduct');
 

@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
+use DateTime;
 class Products extends Model
 {
     protected $table = 'products';
@@ -38,5 +38,36 @@ class Products extends Model
         }
 
         $products = DB::table('products')->select('*')->whereIn('sku', $skuArray)->get();
+    }
+
+    public static function addProduct($item)
+    {
+        $sku   = str_pad($item['sku'], 8, '0', STR_PAD_LEFT);
+        error_log($sku);
+        $desc  = $item['desc'];
+        $image = $item['image'];
+        $brand = $item['brand'];
+        $model = $item['model'];
+        $price = $item['price'];
+        $color = $item['color'];
+
+        $productID = DB::table('products')->insert([
+            'sku' => $sku,
+            'description' => $desc,
+            'img'   => $image,
+            'brand' => $brand,
+            'model' => $model,
+            'price' => $price,
+            'color' => $color,
+            'stock' => 0,
+            'created_at' =>  \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
+        ]);
+        return $productID;
+    }
+
+    public static function getLastSku()
+    {
+        return DB::table('products')->max('sku');
     }
 }
