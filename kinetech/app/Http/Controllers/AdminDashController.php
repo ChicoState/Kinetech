@@ -44,7 +44,6 @@ class AdminDashController extends Controller
 			'email' => $email,
 			'address' => $address,
 		]);
-
 		return redirect()->route('adminDash');
     }
 }
