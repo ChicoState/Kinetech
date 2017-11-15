@@ -23,11 +23,13 @@ Route::post('/register', 'Auth\RegisterController@create');
  */
 Route::get('/about', 'AboutController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/profile', 'ProfileController@index');
 Route::get('/cart', 'CartController@index');
 Route::post('/addToCart', 'CartController@addToCart');
 Route::post('/remove', 'CartController@removeFromCart');
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');
+Route::post('/updateProfile', 'ProfileController@updateProfile');
 
 /**
  * Call index function in ProductsController at /products request
