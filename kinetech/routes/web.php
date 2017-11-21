@@ -47,15 +47,12 @@ Route::post('/updateProfile', 'ProfileController@updateProfile');
  */
 Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
-Route::post('/updateProfile', 'AdminDashController@updateAdminProfile');
 Route::get('/addProduct', 'ProductsController@addProductPage');
 Route::post('/addProduct', 'ProductsController@addProduct');
 Route::get('/updateProduct/{id}', 'ProductsController@updateProductPage');
 Route::post('/updateProduct', 'ProductsController@updateProduct');
 
 
-Route::get('/dashboard/admin', ['uses' =>'AdminDashController@getAdminProfile',
-								'as'   => 'adminDash']);
 /*
  * Return home view when project root requested
  *

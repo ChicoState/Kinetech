@@ -20,25 +20,26 @@ class ProfileController extends Controller
 
     public function index()
     {
-
             $user = [
-                'id'    => Auth::user()->id,
-                'name'  => Auth::user()->name,
-                'email' => Auth::user()->email,
-                'address' => Auth::user()->address,
+                'id'       => Auth::user()->id,
+                'name'     => Auth::user()->name,
+                'email'    => Auth::user()->email,
+                'address'  => Auth::user()->address,
                 'is_admin' => Auth::user()->is_admin,
             ];
             return view('profile.profile', ['user' => $user]);
     }
 
     public function updateProfile(Request $request) {
-        $id = $request->input('id');
-        $name = $request->input('username');
+        $id    = $request->input('id');
+        $name  = $request->input('username');
         $email = $request->input('email');
+        $address = $request->input('address');
         User::updateUser([
             'id' => $id,
             'name' => $name,
-            'email' => $email
+            'email' => $email,
+            'address' => $address,
         ]);
     }
 }
