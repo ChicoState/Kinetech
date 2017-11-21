@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('newProduct')
-<form action="/addProduct" method="post" accept-charset="utf-8">
+<form action="/addProduct" method="post" enctype="multipart/form-data">
 	{{ csrf_field() }}
 	SKU:
 	<input type="number" name="sku" value="{{$lastSku}}" placeholder=" {{ $lastSku }} ">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Products;
 use App\User;
 use Auth;
@@ -33,18 +34,20 @@ class ProductsController extends Controller
 
     public function addProduct(Request $request)
     {
-        $sku = $request->input('sku');
+        $sku   = $request->input('sku');
         $desc  = $request->input('description');
-        $image = $request->input('file');
+        $image = $request->file('file');
         $brand = $request->input('brand');
         $model = $request->input('model');
         $price = $request->input('price');
         $color = $request->input('color');
 
+        $imagePath = $image->store('/imgs', 'public');
+        error_log($imagePath);
         $productID = Products::addProduct([
             'sku' => $sku,
             'desc' => $desc,
-            'image' => $image,
+            'image' => '/' . $imagePath,
             'brand' => $brand,
             'model' => $model,
             'price' => $price,
