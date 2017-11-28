@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -26,4 +27,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function updateAdminUser($user)
+    {
+        //check if admin
+        $id = $user['id'];
+        $name = $user['name'];
+        $email = $user['email'];
+        $address = $user['address'];
+
+        DB::table('users')->where('id', $id)->update([
+            'name' => $name,
+            'email' => $email,
+            'address' => $address,
+        ]);        
+    }
 }

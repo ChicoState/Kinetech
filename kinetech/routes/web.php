@@ -35,14 +35,23 @@ Route::get('/removeAll/{id}', ['uses' => 'CartController@removeAll',
 
 Route::get('/resetCart', 'CartController@resetCart');
 Route::post('/addCart', 'CartController@addCart');
+Route::get('/home', 'HomeController@index');
+Route::get('/profile', 'ProfileController@index');
+
 Route::post('/login', 'Auth\LoginController@login');
 Route::any('/logout', 'Auth\LoginController@logout');
+Route::post('/updateProfile', 'ProfileController@updateProfile');
 
 /**
  * Call index function in ProductsController at /products request
  */
 Route::any('/products', [ 'uses' =>'ProductsController@index',
 							'as' => 'productsIndex']);
+Route::get('/addProduct', 'ProductsController@addProductPage');
+Route::post('/addProduct', 'ProductsController@addProduct');
+Route::get('/updateProduct/{id}', 'ProductsController@updateProductPage');
+Route::post('/updateProduct', 'ProductsController@updateProduct');
+
 
 /*
  * Return home view when project root requested

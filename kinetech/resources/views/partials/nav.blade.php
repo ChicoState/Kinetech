@@ -30,7 +30,7 @@
                   <span class="badge" id="cartItems"> {{ Session::has('cart') ? Session::get('cart')->totalQuant : ' ' }} </span>
                 </li>
                 <li class="nav-item">
-                  <a class="text-info nav-link disabled" href="">PROFILE</a>
+                  <a class="text-info nav-link " href="/profile">PROFILE</a>
                 </li>
                 <li class="nav-item">
                   <a class="text-info nav-link" href="/logout">LOG OUT </a>
