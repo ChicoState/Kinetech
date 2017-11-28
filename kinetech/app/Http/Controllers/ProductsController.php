@@ -8,13 +8,16 @@ use App\Products;
 use App\User;
 use Auth;
 
-
+/**
+ * @author Elliott Allmann <elliott.allmann@gmail.com>
+ * Products Controller
+ */
 class ProductsController extends Controller
 {
     /**
-     * Return view for products index.
-     *
-     * @return 'products.products'
+     * Get all products and product brands from the model,
+     * Check if user is admin, and then pass it to the view.
+     * @return Products/products  The view that loads all products.
      */
     public function index()
     {
@@ -26,12 +29,20 @@ class ProductsController extends Controller
                                          'isAdmin'        => $isAdmin,]);
     }
 
+    /**
+     * Loads the page for adding a new product to the DB 
+     * for an admin. Needs to take the next available SKU
+     */
     public function addProductPage()
     {
         $lastSku = str_pad(Products::getLastSku() + 1, 8, '0', STR_PAD_LEFT);
         return view('products.newProduct', ['lastSku' => $lastSku]);
     }
 
+    /**
+     * Adds a new product to the database
+     * @param HttpRequest $request
+     */
     public function addProduct(Request $request)
     {
         $sku   = $request->input('sku');
@@ -56,12 +67,22 @@ class ProductsController extends Controller
         return redirect()->route('adminDash');
     }
 
+    /**
+     * Loads the update product page given a SKU
+     * @param  String $id The SKU of the item to update
+     * @return View     Products.updateProduct
+     */
     public function updateProductPage($id)
     {
         $product = Products::getProduct($id);
         return view('products.updateProduct', ['product' => $product]);
     }
 
+    /**
+     * Update a product
+     * @param  Request $request 
+     * @return Redirect to the Products page
+     */
     public function updateProduct(Request $request)
     {
         $sku = $request->input('sku');
@@ -83,7 +104,6 @@ class ProductsController extends Controller
             'stock' => $stock,
             'image' => $image,
         ]);
-
         return redirect('/products');
     }
 }

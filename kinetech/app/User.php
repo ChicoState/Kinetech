@@ -28,6 +28,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    /**
+     * Update the name, email, and address of a user
+     * @param  Array $user An array of the user attributes we are updating. 
+     * @return None
+     * @author Elliott Allmann <elliott.allmann@gmail.com>
+     */
     public static function updateAdminUser($user)
     {
         //check if admin

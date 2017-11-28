@@ -8,7 +8,6 @@ function addToCart(sku){
 	var myURL = "/addToCart/" + sku;
 	console.log(myURL);
 	$.get(myURL, function(data){
-		console.log(data);
 		document.getElementById("cartItems").innerHTML = data;
 	});
 }

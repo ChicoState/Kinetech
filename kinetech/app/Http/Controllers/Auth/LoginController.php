@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\kineUser;
+
+/**
+ * @author Elliott Allmann <elliott.allmann@gmail.com>
+ * The login controller.
+ */
 class LoginController extends Controller
 {
     /*
@@ -39,6 +43,11 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Log a user in
+     * @param  Request $request 
+     * @return Redirect to the home page or show the errors.
+     */
     public function login(Request $request)
     {
         if(Auth::attempt([
@@ -57,6 +66,11 @@ class LoginController extends Controller
         } 
     }
 
+    /**
+     * Log a user out
+     * @param  Request $request 
+     * @return Redirect to the home page.
+     */
     public function logout(Request $request)
     {
         $request->session()->forget('cart');
