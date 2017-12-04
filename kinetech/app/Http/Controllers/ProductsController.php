@@ -26,7 +26,7 @@ class ProductsController extends Controller
         //If there is no user then $isAdmin becomes "non-object"
         //We need to be able to load the page if you are not logged in
         if(Auth::user()) {
-            $isAdmin       = Auth::user()->is_admin;
+            $isAdmin = Auth::user()->is_admin;
         } else {
             $isAdmin = false;
         }
