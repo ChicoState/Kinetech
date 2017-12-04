@@ -14,6 +14,9 @@
                     <li class="nav-item">
                         <a class="text-info nav-link" href="/products">PRODUCTS</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="text-info nav-link" href="contact">CONTACT</a>
+                    </li>
                 </ul>
 
 		      <div class="d-flex flex-column p-2">

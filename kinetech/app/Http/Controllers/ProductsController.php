@@ -23,7 +23,13 @@ class ProductsController extends Controller
     {
     	$products      = Products::getProducts();
         $productBrands = Products::getBrands();
-        $isAdmin       = Auth::user()->is_admin;
+        //If there is no user then $isAdmin becomes "non-object"
+        //We need to be able to load the page if you are not logged in
+        if(Auth::user()) {
+            $isAdmin       = Auth::user()->is_admin;
+        } else {
+            $isAdmin = false;
+        }
         return view('products.products',['products'       => $products,
                                          'productBrands'  => $productBrands,
                                          'isAdmin'        => $isAdmin,]);
