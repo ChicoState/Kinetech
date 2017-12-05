@@ -11,6 +11,7 @@ class BasicCest
     {
     }
 
+
     private function loginAsTestUser(AcceptanceTester $I)
     {
         $I->amOnPage('/');
@@ -18,9 +19,8 @@ class BasicCest
         $I->wait(1);
         $I->fillField('email', 'testuser@test.com');
         $I->fillField('password', 'testpassword');
-        $I->click('Log In');        
+        $I->click('Log In');
     }
-
     // tests
     public function tryToTest(AcceptanceTester $I)
     {
