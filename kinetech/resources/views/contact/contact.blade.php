@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('contact')
-    <form action="contact" method="post" class="row p-4">
+    <form action="contact" method="post" class="row p-4" name="contactForm">
         {{ csrf_field() }}
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 form-group">
             <label for="email">Email address</label>
@@ -18,6 +18,15 @@
             <label for="contentTextArea">Message</label>
             <textarea class="form-control" name="senderContent" rows="3"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Send</button>
+        <button type="submit" class="btn btn-primary" name="submit">Send</button>
     </form>
+    @if ($errors->any())
+    	<div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection
