@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
+/**
+ * @author  Elliott Allmann <elliott.allmann@gmail.com>
+ * The Controller to register a new user.
+ */
 class RegisterController extends Controller
 {
     /*

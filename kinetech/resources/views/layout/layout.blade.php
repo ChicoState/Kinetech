@@ -56,6 +56,7 @@
     @yield('profile')
 
     @yield('contact')
+    @yield('received')
     @yield('productFilter')
     @yield('cartStats')
       <div class="mx-auto">
