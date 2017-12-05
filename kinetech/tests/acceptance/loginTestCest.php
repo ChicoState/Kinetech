@@ -31,6 +31,7 @@ class loginTestCest
         $I->amOnPage('/');
         acceptanceHelper::seeNavBarElements($I);
         loginHelper::loginAsTestUser($I);
+        acceptanceHelper::seeLoggedInNavBarElements($I);
     }
 
     /**

@@ -28,7 +28,23 @@ class Acceptance extends \Codeception\Module
         $I->dontSee('Password');
         $I->dontSee('Log In');
         $I->dontSee('#loginClose');
+    }
+
+    public static function seeLoggedInNavBarElements(\AcceptanceTester $I)
+    {
+        $I->see('Kinetech');
+        $I->see('HOME');
+        $I->see('ABOUT');
+        $I->see('PRODUCTS');
+        $I->dontSee('LOGIN');
+        $I->dontSee('REGISTER');
+        $I->dontSee('Email');
+        $I->dontSee('Password');
+        $I->dontSee('Log In');
         $I->dontSee('#loginClose');
+        $I->see('CART');
+        $I->see('PROFILE');
+        $I->see('LOG OUT');
     }
 
     /**

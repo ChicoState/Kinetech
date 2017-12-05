@@ -23,4 +23,14 @@ class Login extends \Codeception\Module
         $I->fillField('password', 'testpassword');
         $I->click('Log In');
     }
+
+    public static function loginAsCustomUser(\AcceptanceTester $I, $username, $password)
+    {
+        $I->amOnPage('/');
+        $I->click('LOGIN');
+        $I->wait(1);
+        $I->fillField('email', $username);
+        $I->fillField('password', $password);
+        $I->click('Log In');
+    }
 }
