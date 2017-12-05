@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-  public function index()
-  {
-      return view('contact.contact');
-  }
+  	public function index()
+  	{
+    	return view('contact.contact');
+  	}
 
-  public function sendEmail(Request $request)
-  {
-      \Mail::to('foomasri@gmail.com')
-          ->send(new Contact($request->input('senderName'),
-                             $request->input('senderEmail'),
-                             $request->input('senderSubject'),
-                             $request->input('senderContent'))
-          );
-
-      return view('contact.contact');
-  }
+  	public function sendEmail(Request $request)
+  	{
+		$request->validate([
+        	'senderEmail' => 'required',
+        	'senderName' => 'required',
+			'senderSubject' => 'required',
+			'senderContent' => 'required|min:15'
+    	]);
+    	\Mail::to('foomasri@gmail.com')->send(new Contact($request));
+      	return view('contact.received');
+  	}
 }

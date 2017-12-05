@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use App\Products;
 use App\User;
 use Auth;
@@ -22,7 +23,13 @@ class ProductsController extends Controller
     {
     	$products      = Products::getProducts();
         $productBrands = Products::getBrands();
-        $isAdmin       = Auth::user()->is_admin;
+        //If there is no user then $isAdmin becomes "non-object"
+        //We need to be able to load the page if you are not logged in
+        if(Auth::user()) {
+            $isAdmin = Auth::user()->is_admin;
+        } else {
+            $isAdmin = false;
+        }
         return view('products.products',['products'       => $products,
                                          'productBrands'  => $productBrands,
                                          'isAdmin'        => $isAdmin,]);
@@ -44,18 +51,20 @@ class ProductsController extends Controller
      */
     public function addProduct(Request $request)
     {
-        $sku = $request->input('sku');
+        $sku   = $request->input('sku');
         $desc  = $request->input('description');
-        $image = $request->input('file');
+        $image = $request->file('file');
         $brand = $request->input('brand');
         $model = $request->input('model');
         $price = $request->input('price');
         $color = $request->input('color');
 
+        $imagePath = $image->store('/imgs', 'public');
+        error_log($imagePath);
         $productID = Products::addProduct([
             'sku' => $sku,
             'desc' => $desc,
-            'image' => $image,
+            'image' => '/' . $imagePath,
             'brand' => $brand,
             'model' => $model,
             'price' => $price,

@@ -53,7 +53,10 @@
 
     <!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
     @yield('about')
+    @yield('profile')
+
     @yield('contact')
+    @yield('received')
     @yield('productFilter')
     @yield('cartStats')
       <div class="mx-auto">
