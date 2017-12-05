@@ -1,5 +1,6 @@
 <?php
 
+use Helper\Acceptance as acceptanceHelper;
 
 class BasicCest
 {
@@ -12,28 +13,13 @@ class BasicCest
     }
 
 
-    private function loginAsTestUser(AcceptanceTester $I)
-    {
-        $I->amOnPage('/');
-        $I->click('LOGIN');
-        $I->wait(1);
-        $I->fillField('email', 'testuser@test.com');
-        $I->fillField('password', 'testpassword');
-        $I->click('Log In');
-    }
+
     // tests
-    public function tryToTest(AcceptanceTester $I)
-    {
-        $I->wantTo("Make sure the home page loads");
-        $I->amOnPage('/');
-        $I->wait(1);
-        $I->see("Kinetech");
-    }
 
     public function loginTest(AcceptanceTester $I)
     {
         $I->wantTo("Attempt to log in with good data.");
-        $this->loginAsTestUser($I);
+        acceptanceHelper::loginAsTestUser($I);
         $I->wait(1);
         $I->see('CART');
         $I->see('PROFILE');
@@ -43,7 +29,7 @@ class BasicCest
     public function loadProfileViewTest(AcceptanceTester $I)
     {
         $I->wantTo('Log in as a regular user, and then view my profile');
-        $this->loginAsTestUser($I);
+        acceptanceHelper::loginAsTestUser($I);
         $I->wait(1);
         $I->click('PROFILE');
         $I->wait(1);
@@ -53,7 +39,7 @@ class BasicCest
     public function loadProductsPageAsTestUserTest(AcceptanceTester $I)
     {
         $I->wantTo('Log in as a test user, and then view the products page.');
-        $this->loginAsTestUser($I);
+        acceptanceHelper::loginAsTestUser($I);
         $I->wait(1);
         $I->click('PRODUCTS');
         $I->wait(1);
