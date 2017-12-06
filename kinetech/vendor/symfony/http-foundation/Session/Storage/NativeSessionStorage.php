@@ -406,6 +406,13 @@ class NativeSessionStorage implements SessionStorageInterface
         }
         $this->saveHandler = $saveHandler;
 
+<<<<<<<
+        if (headers_sent() || \PHP_SESSION_ACTIVE === session_status()) {
+            return;
+        }
+
+        if ($this->saveHandler instanceof \SessionHandlerInterface) {
+=======
         if (headers_sent() || \PHP_SESSION_ACTIVE === session_status()) {
             return;
         }
@@ -413,6 +420,7 @@ class NativeSessionStorage implements SessionStorageInterface
         if ($this->saveHandler instanceof SessionHandlerProxy) {
             session_set_save_handler($this->saveHandler->getHandler(), false);
         } elseif ($this->saveHandler instanceof \SessionHandlerInterface) {
+>>>>>>>
             session_set_save_handler($this->saveHandler, false);
         }
     }

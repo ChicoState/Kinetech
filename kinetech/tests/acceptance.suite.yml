@@ -3,14 +3,14 @@
 # Suite for acceptance tests.
 # Perform tests in browser using the WebDriver or PhpBrowser.
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
-class_name: AcceptanceTester
+
+actor: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://kinetech.local/' # put your local url
+            url: 'https://www.kinetechofficial.com/'
+            window_size: 1920x1080
             port: 9515
             browser: chrome
-        - Laravel5:
-            part: ORM
-            cleanup: false # can't wrap into transaction
-        - \Helper\Acceptance  
+
+        - \Helper\Acceptance

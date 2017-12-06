@@ -723,7 +723,11 @@ class Application
                 $width = 1 << 31;
             }
             $lines = array();
+<<<<<<<
+            foreach (preg_split('/\r?\n/', trim($e->getMessage())) as $line) {
+=======
             foreach ('' !== $message ? preg_split('/\r?\n/', $message) : array() as $line) {
+>>>>>>>
                 foreach ($this->splitStringByWidth($line, $width - 4) as $line) {
                     // pre-format lines to get the right string length
                     $lineLength = Helper::strlen($line) + 4;
@@ -754,6 +758,16 @@ class Application
 
                 // exception related properties
                 $trace = $e->getTrace();
+<<<<<<<
+                array_unshift($trace, array(
+                    'function' => '',
+                    'file' => null !== $e->getFile() ? $e->getFile() : 'n/a',
+                    'line' => null !== $e->getLine() ? $e->getLine() : 'n/a',
+                    'args' => array(),
+                ));
+=======
+
+>>>>>>>
 
                 for ($i = 0, $count = count($trace); $i < $count; ++$i) {
                     $class = isset($trace[$i]['class']) ? $trace[$i]['class'] : '';
@@ -879,8 +893,12 @@ class Application
         } else {
             if ($input->hasParameterOption('-vvv', true) || $input->hasParameterOption('--verbose=3', true) || 3 === $input->getParameterOption('--verbose', false, true)) {
                 $output->setVerbosity(OutputInterface::VERBOSITY_DEBUG);
+<<<<<<<
+            } elseif ($input->hasParameterOption('-vv', true) || $input->hasParameterOption('--verbose=2', true) || 2 === $input->getParameterOption('--verbose', false, true)) {
+=======
                 $shellVerbosity = 3;
             } elseif ($input->hasParameterOption('-vv', true) || $input->hasParameterOption('--verbose=2', true) || 2 === $input->getParameterOption('--verbose', false, true)) {
+>>>>>>>
                 $output->setVerbosity(OutputInterface::VERBOSITY_VERY_VERBOSE);
                 $shellVerbosity = 2;
             } elseif ($input->hasParameterOption('-v', true) || $input->hasParameterOption('--verbose=1', true) || $input->hasParameterOption('--verbose', true) || $input->getParameterOption('--verbose', false, true)) {

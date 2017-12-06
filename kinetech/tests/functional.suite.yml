@@ -8,5 +8,7 @@
 actor: FunctionalTester
 modules:
     enabled:
+        - Laravel5
+
         # add a framework module here
         - \Helper\Functional

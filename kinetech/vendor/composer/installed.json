@@ -2484,6 +2484,11 @@
         },
         "time": "2017-09-27 21:40:39",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "files": [
@@ -2921,7 +2926,7 @@
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "BSD-3-Clause"
+            "MIT"
         ],
         "authors": [
             {
@@ -3092,13 +3097,16 @@
         },
         "installation-source": "dist",
         "autoload": {
-            "classmap": [
-                "src/"
-            ]
+            "files": [
+                "src/functions_include.php"
+            ],
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "BSD-3-Clause"
+            "MIT"
         ],
         "authors": [
             {
@@ -3258,6 +3266,16 @@
         },
         "time": "2017-10-19 19:58:43",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            },
+            "laravel": {
+                "providers": [
+                    "Laravel\\Dusk\\DuskServiceProvider"
+                ]
+            }
+        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
@@ -3273,11 +3291,9 @@
         ],
         "description": "Create deep copies (clones) of your objects",
         "keywords": [
-            "clone",
-            "copy",
-            "duplicate",
-            "object",
-            "object graph"
+            "laravel",
+            "testing",
+            "webdriver"
         ]
     },
     {
@@ -3525,6 +3541,9 @@
         },
         "installation-source": "dist",
         "autoload": {
+            "files": [
+                "Resources/functions/dump.php"
+            ],
             "psr-4": {
                 "Stecman\\Component\\Symfony\\Console\\BashCompletion\\": "src/"
             }
@@ -4361,6 +4380,67 @@
         },
         "require-dev": {
             "symfony/console": "~3.4|~4.0"
+        },
+        "time": "2017-11-13 18:13:16",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\HttpFoundation\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony HttpFoundation Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/event-dispatcher",
+        "version": "v3.3.13",
+        "version_normalized": "3.3.13.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/event-dispatcher.git",
+            "reference": "271d8c27c3ec5ecee6e2ac06016232e249d638d9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/271d8c27c3ec5ecee6e2ac06016232e249d638d9",
+            "reference": "271d8c27c3ec5ecee6e2ac06016232e249d638d9",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "conflict": {
+            "symfony/dependency-injection": "<3.3"
+        },
+        "require-dev": {
+            "psr/log": "~1.0",
+            "symfony/config": "~2.8|~3.0",
+            "symfony/dependency-injection": "~3.3",
+            "symfony/expression-language": "~2.8|~3.0",
+            "symfony/stopwatch": "~2.8|~3.0"
         },
         "suggest": {
             "symfony/console": "For validating YAML files using the lint command"
