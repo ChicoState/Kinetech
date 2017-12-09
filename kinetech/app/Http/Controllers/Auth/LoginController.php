@@ -58,7 +58,6 @@ class LoginController extends Controller
             }       
         else
         {
-            error_log('login failed');
             return Redirect::back()
                 ->withInput($request->only('email', 'remember'))
                 ->withErrors([
