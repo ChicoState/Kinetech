@@ -9,6 +9,7 @@ use App\Cart;
 use App\Products;
 use App\Storage\logs\laravel;
 use App\User;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -35,11 +36,21 @@ class ProfileController extends Controller
         $name  = $request->input('username');
         $email = $request->input('email');
         $address = $request->input('address');
-        User::updateUser([
+
+        $updateSuccess =  User::updateUser([
             'id' => $id,
             'name' => $name,
             'email' => $email,
             'address' => $address,
         ]);
+
+        if(!$updateSuccess)
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'profileEmail' => 'Email is already in use!'
+                ]);
+        }
     }
 }

@@ -23,9 +23,16 @@
       <div class="row">
           <button onclick="changeEmail()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button> 
           Email: {{ $user['email'] }}
+          @if ($errors->has('profileEmail'))
+              <span class="help-block">
+                <strong>{{ $errors->first('profileEmail') }}</strong>
+            </span>
+          @endif
+
       </div>
       <div class="row ml-5 mt-2">
           <input id="ChangeEmailInput" style="height:24px; display:none" value="{{ $user['email'] }}">
+
           <button onclick="updateInfo()" id="ChangeEmailCheck" style="display:none; width:24px; height:24px; color:green">
             <div>&#x2713;</div>
           </button>
