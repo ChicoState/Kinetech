@@ -72,13 +72,17 @@ class RegisterController extends Controller
         $username = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        $confirmPassword = $request->input('confirmPassword');
+        $confirmPassword = $request->input('password_confirmation');
 
-
+        /**
+         * Check to see if the passwords patch
+         * If they do not, return the email and username that they
+         * tried to register
+         */
         if($password !== $confirmPassword)
         {
             return Redirect::back()
-                ->withInput($request->only('name', 'email'))
+                ->withInput()
                 ->withErrors([
                     'registerPassword' => 'Passwords do not match!'
                 ]);
