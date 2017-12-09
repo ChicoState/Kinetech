@@ -17,6 +17,8 @@ class CreateTableOrders extends Migration
             $table->increments('order_id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('cart_id')->unsigned();
+            $table->foreign('cart_id')->references('id')->on('carts');
             $table->string('street_address', 50);
             $table->string('apt_number', 10)->default('N/A');
             $table->string('city', 50);
