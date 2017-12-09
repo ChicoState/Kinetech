@@ -48,7 +48,12 @@
   @include('partials.nav')
   <main class="content">
 
-    <!-- Yield home if project root '/' is requested -->
+      @if($errors->has('password'))
+          @foreach ($errors->all() as $error)
+              <div class="ktAuthError">{{ $error }}</div>
+          @endforeach
+      @endif
+  <!-- Yield home if project root '/' is requested -->
     @yield('home')
 
     <!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
