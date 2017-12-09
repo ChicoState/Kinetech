@@ -45,6 +45,6 @@
 	@else
 	<p> Total: $0 </p>
 	@endif
-	<button type="submit" disabled="true"> Place Order </button>
+	<a href="/addOrder"><button type="submit"> Place Order </button></a>
 </div>
 @endsection

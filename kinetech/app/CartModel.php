@@ -3,14 +3,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-
+use Cart;
 class CartModel extends Model
 {
-    public static function saveCart($cart, $userID)
+    public static function saveCart($oldCart, $userID)
     {
-        $price = $cart['totalPrice'];
-        $quant = $cart['totalQuant'];
-        $items = $cart['items'];
+        $cart = new Cart($oldCart);
+        $price = $cart->getTotalPrice();
+        $quant = $cart->getTotalQuantity();
+        $items = $cart->getItems();
 
         DB::table('carts')->insert([
             'user_id' => $userID,
