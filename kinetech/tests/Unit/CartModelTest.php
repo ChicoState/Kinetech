@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Session;
 use App\Cart;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,16 +15,16 @@ class CartModelTest extends TestCase
      * @return void
      */
     public function testCartConstructor()
-    {
-        $oldcart = [
+    {   
+        $oldCart = [
         	'items' => [
         		'samsung',
         		'iphone'
         	],
-        	'totalQuant' => 3,
-        	'totalPrice' => 99.98
+        	'totalQuant' => '3',
+        	'totalPrice' => '99.98'
         ];
-        $cart = new Cart($oldcart);
-        $this->assertEquals($cart->totalQuant, 3);
+        $cart = new Cart($oldCart);
+        $this->assertEquals($cart['totalQuant'], '3');
     }
 }
