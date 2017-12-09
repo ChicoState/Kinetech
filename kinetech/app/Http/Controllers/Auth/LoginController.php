@@ -59,9 +59,9 @@ class LoginController extends Controller
         else
         {
             return Redirect::back()
-                ->withInput()
                 ->withErrors([
-                    'password' => 'Incorrect password!'
+                    'email' => 'Email not found!',
+                    'password' => 'Incorrect password!',
                 ]);
         } 
     }
