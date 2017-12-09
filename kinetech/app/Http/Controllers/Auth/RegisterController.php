@@ -87,6 +87,14 @@ class RegisterController extends Controller
                     'registerPassword' => 'Passwords do not match!'
                 ]);
         }
+        else if($password === 'Password' || $password === 'password')
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'registerPassword' => "Password cannot be '$password'",
+                    ]);
+        }
         else
         {
             User::create([
