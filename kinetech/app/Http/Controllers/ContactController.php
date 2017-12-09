@@ -1,4 +1,9 @@
 <?php
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Controller for handling email post requests.
+ */
 
 namespace App\Http\Controllers;
 

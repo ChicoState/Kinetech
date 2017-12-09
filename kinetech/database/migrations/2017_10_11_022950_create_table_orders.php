@@ -1,4 +1,9 @@
 <?php
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Migration file to define the orders table for the database.
+ */
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
