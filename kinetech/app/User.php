@@ -48,4 +48,9 @@ class User extends Authenticatable
             'address' => $address,
         ]);        
     }
+
+    public static function validateEmail($email)
+    {
+        return (DB::table('users')->where('email', $email)->exists()) ? true : false;
+    }
 }

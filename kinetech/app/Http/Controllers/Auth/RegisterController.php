@@ -74,6 +74,16 @@ class RegisterController extends Controller
         $password = $request->input('password');
         $confirmPassword = $request->input('password_confirmation');
 
+        $validEmail = User::validateEmail($email);
+
+        if($validEmail)
+        {
+            return Redirect::back()
+                ->withInput($request->only('name'))
+                ->withErrors([
+                    'registerEmail' => 'Email is already in use!'
+                ]);
+        }
         /**
          * Check to see if the passwords patch
          * If they do not, return the email and username that they
