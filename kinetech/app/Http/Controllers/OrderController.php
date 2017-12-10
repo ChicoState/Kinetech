@@ -22,12 +22,18 @@ class OrderController extends Controller
     public function addOrder()
     {
         $id = Auth::user()->id;
-        $oldCart = Session::get('cart');
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+        if(isset($oldCart) && !empty($oldCart))
+        {
+            error_log("old cart is good.");
+        }
         //Create a new cart object to ensure it is correct.
         $cart = new Cart($oldCart);
-        $cartID = CartModel::saveCart($id, $cart);
+        $cartID = CartModel::saveCart($cart, $id);
         Order::newOrder($id, $cartID);
-
+        Session::forget('cart');
+        return view('home');
     }
 
     public function dropOrder($orderID)

@@ -3,15 +3,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use Cart;
+use App\Cart;
+use App\Http\Controllers\Auth as Auth;
+
 class CartModel extends Model
 {
     public static function saveCart($oldCart, $userID)
     {
-        $cart = new Cart($oldCart);
+        $cart = new \App\Cart($oldCart);
         $price = $cart->getTotalPrice();
         $quant = $cart->getTotalQuantity();
-        $items = $cart->getItems();
+        $items = serialize($cart->getItems());
 
         DB::table('carts')->insert([
             'user_id' => $userID,

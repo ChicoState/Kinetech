@@ -4,7 +4,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use DateTime;
-use App\Http\Controllers\Auth as Auth;
+use Auth;
+
 
 class Order extends Model
 {
@@ -18,6 +19,8 @@ class Order extends Model
             'street_address' => Auth::user()->address,
             'city' => 'Chico',
             'state' => 'CA',
+            'created_at' =>  \Carbon\Carbon::now()->toDateTimeString(),
+            'updated_at' => \Carbon\Carbon::now()->toDateTimeString(),
         ]);
     }
 
