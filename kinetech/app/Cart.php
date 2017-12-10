@@ -118,4 +118,14 @@ class Cart
 	{
 		return $this->totalQuant;
 	}
+
+	public function getTotalPrice()
+    {
+        return $this->totalPrice;
+    }
+
+    public function getItems()
+    {
+        return $this->items;
+    }
 }

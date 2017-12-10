@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Controller to return the About view.
+ */
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;

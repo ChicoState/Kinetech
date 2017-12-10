@@ -18,13 +18,6 @@
                         <a class="text-info nav-link" href="contact">CONTACT</a>
                     </li>
                 </ul>
-
-		      <div class="d-flex flex-column p-2">
-     			    <form class="form-inline my-2">
-            		<input class="form-control mr-sm-2" type="text" placeholder="Search">
-            		<button class="btn btn-sm btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-     			    </form>
-    		  </div>
           
     		  <ul class="navbar-nav p-3">
               @if(Auth::check())

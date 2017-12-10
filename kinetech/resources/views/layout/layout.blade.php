@@ -48,17 +48,30 @@
   @include('partials.nav')
   <main class="content">
 
-    <!-- Yield home if project root '/' is requested -->
+
+      @if($errors->has('password'))
+          @foreach ($errors->all() as $error)
+              <div class="ktAuthError">{{ $error }}</div>
+          @endforeach
+      @endif
+  <!-- Yield home if project root '/' is requested -->
     @yield('home')
 
+
+      @if($errors)
+          @foreach ($errors->all() as $error)
+              <div class="ktAuthError">{{ $error }}</div>
+          @endforeach
+      @endif
+      @yield('home')
     <!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
     @yield('about')
     @yield('profile')
-
     @yield('contact')
     @yield('received')
     @yield('productFilter')
     @yield('cartStats')
+    @yield('orderStats')
       <div class="mx-auto">
         @yield('content')
         @yield('products')
@@ -66,6 +79,8 @@
         @yield('adminProfileView')
         @yield('newProduct')
         @yield('updateProduct')
+        @yield('orderSummary')
+        @yield('orderView')
       </div>
 
   </main>
