@@ -34,6 +34,7 @@
 		</div>
 	</ul>
 	@endforeach
+
 </div>
 @endif
 @endsection
@@ -46,5 +47,7 @@
 	<p> Total: $0 </p>
 	@endif
 	<a href="/addOrder"><button type="submit"> Place Order </button></a>
+	<br>
+	<a href="/viewOrders"> View My Orders! </a>
 </div>
 @endsection
