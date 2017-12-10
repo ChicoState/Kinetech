@@ -3,6 +3,7 @@
 <!--<h1 class="row justify-content-center">
   Welcome
 </h1>-->
+
 <div class="row justify-content-center homeLogoDiv">
   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
     <img class="img-fluid rounded" alt="KineTech Logo" src="{{url('imgs/KineTech.png')}}">
