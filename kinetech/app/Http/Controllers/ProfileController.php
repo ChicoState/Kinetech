@@ -9,6 +9,7 @@ use App\Cart;
 use App\Products;
 use App\Storage\logs\laravel;
 use App\User;
+use Illuminate\Support\Facades\Redirect;
 
 class ProfileController extends Controller
 {
@@ -54,7 +55,16 @@ class ProfileController extends Controller
             'aptNumber' => $aptNumber,
             'city'      => $city,
             'state'     => $state,
-            'zipCode'   => $zip
+            'zipCode'   => $zip,
         ]);
+
+        if(!$updateSuccess)
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'profileEmail' => 'Email is already in use!'
+                ]);
+        }
     }
 }

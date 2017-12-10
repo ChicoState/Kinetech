@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
@@ -68,6 +69,7 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
+
         $username   = $request->input('name');
         $email      = $request->input('email');
         $password   = $request->input('password');
@@ -77,17 +79,51 @@ class RegisterController extends Controller
         $state      = $request->input('state');
         $zip        = $request->input('zipCode');
 
-        User::create([
-            'name' => $username,
-            'email' => $email,
-            'password' => bcrypt($password),
-            'is_admin' => 0,
-            'address'   => $address,
-            'aptNumber' => $aptNumber,
-            'city'      => $city,
-            'state'     => $state,
-            'zipCode'   => $zip
-        ]);
-        return view('home');
+       $validEmail = User::validateEmail($email);
+
+        if($validEmail)
+        {
+            return Redirect::back()
+                ->withInput($request->only('name'))
+                ->withErrors([
+                    'registerEmail' => 'Email is already in use!'
+                ]);
+        }
+        /**
+         * Check to see if the passwords patch
+         * If they do not, return the email and username that they
+         * tried to register
+         */
+        if($password !== $confirmPassword)
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'registerPassword' => 'Passwords do not match!'
+                ]);
+        }
+        else if($password === 'Password' || $password === 'password')
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'registerPassword' => "Password cannot be '$password'",
+                    ]);
+        }
+        else
+        {
+          User::create([
+              'name' => $username,
+              'email' => $email,
+              'password' => bcrypt($password),
+              'is_admin' => 0,
+              'address'   => $address,
+              'aptNumber' => $aptNumber,
+              'city'      => $city,
+              'state'     => $state,
+              'zipCode'   => $zip
+          ]);
+          return view('home');
+        }
     }
 }

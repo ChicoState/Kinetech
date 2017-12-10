@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -36,7 +37,6 @@ class User extends Authenticatable
      */
     public static function updateUser($user)
     {
-        //check if admin
         $id         = $user['id'];
         $name       = $user['name'];
         $email      = $user['email'];
@@ -46,14 +46,35 @@ class User extends Authenticatable
         $state      = $user['state'];
         $zip        = $user['zipCode'];
 
-        DB::table('users')->where('id', $id)->update([
-            'name' => $name,
-            'email' => $email,
-            'address' => $address,
-            'aptNumber' => $aptNumber,
-            'city'      => $city,
-            'state'     => $state,
-            'zipCode'   => $zip,
-        ]);        
+        $validEmail;
+
+        if($email != Auth::user()->email)
+        {
+            $validEmail = !self::validateEmail($email);
+        }
+        else $validEmail = true;
+
+        if ($validEmail)
+        {
+            DB::table('users')->where('id', $id)->update([
+                'name' => $name,
+                'email' => $email,
+                'address' => $address,
+                'aptNumber' => $aptNumber,
+                'city'      => $city,
+                'state'     => $state,
+                'zipCode'   => $zip,
+            ]); 
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static function validateEmail($email)
+    {
+        return (DB::table('users')->where('email', $email)->exists()) ? true : false;
     }
 }
