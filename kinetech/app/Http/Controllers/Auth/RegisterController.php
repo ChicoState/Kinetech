@@ -69,12 +69,17 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-        $username = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
-        $confirmPassword = $request->input('password_confirmation');
 
-        $validEmail = User::validateEmail($email);
+        $username   = $request->input('name');
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+        $address    = $request->input('address');
+        $aptNumber  = $request->input('aptNumber');
+        $city       = $request->input('city');
+        $state      = $request->input('state');
+        $zip        = $request->input('zipCode');
+
+       $validEmail = User::validateEmail($email);
 
         if($validEmail)
         {
@@ -107,14 +112,18 @@ class RegisterController extends Controller
         }
         else
         {
-            User::create([
-                'name' => $username,
-                'email' => $email,
-                'password' => bcrypt($password),
-                'is_admin' => 0,
-            ]);
-            return view('home');
+          User::create([
+              'name' => $username,
+              'email' => $email,
+              'password' => bcrypt($password),
+              'is_admin' => 0,
+              'address'   => $address,
+              'aptNumber' => $aptNumber,
+              'city'      => $city,
+              'state'     => $state,
+              'zipCode'   => $zip
+          ]);
+          return view('home');
         }
-
     }
 }

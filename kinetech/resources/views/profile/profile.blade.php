@@ -7,6 +7,8 @@
 
 <div class="row mt-4 ml-1">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      <!-- User Name -->
       <div class="row">
           <button onclick="changeUser()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button> 
           Username: {{ $user['name'] }}
@@ -20,6 +22,8 @@
             <div>&#10060;</div>
           </button>
       </div>
+
+      <!-- User Email -->
       <div class="row">
           <button onclick="changeEmail()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button> 
           Email: {{ $user['email'] }}
@@ -40,6 +44,8 @@
             <div>&#10060;</div>
           </button>
       </div>
+
+      <!-- User Street Address -->
       <div class="row">
           <button onclick="changeAddress()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button> 
           Address: {{ $user['address'] }}
@@ -53,6 +59,67 @@
             <div>&#10060;</div>
           </button>
       </div>
+
+      <!-- User Apt. Number -->
+      <div class="row">
+          <button onclick="changeAptNumber()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button>
+          Apartment Number: {{ $user['aptNumber'] }}
+      </div>
+      <div class="row ml-5 mt-2">
+          <input id="ChangeAptNumberInput" style="height:24px; display:none" value="{{ $user['aptNumber'] }}">
+          <button onclick="updateInfo()" id="ChangeAptNumberCheck" style="display:none; width:24px; height:24px; color:green">
+              <div>&#x2713;</div>
+          </button>
+          <button id="ChangeAptNumberX" style="display:none; width:24px; height:24px; color:red;">
+              <div>&#10060;</div>
+          </button>
+      </div>
+
+      <!-- User City -->
+      <div class="row">
+          <button onclick="changeCity()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button>
+          City: {{ $user['city'] }}
+      </div>
+      <div class="row ml-5 mt-2">
+          <input id="ChangeCityInput" style="height:24px; display:none" value="{{ $user['city'] }}">
+          <button onclick="updateInfo()" id="ChangeCityCheck" style="display:none; width:24px; height:24px; color:green">
+              <div>&#x2713;</div>
+          </button>
+          <button id="ChangeCityX" style="display:none; width:24px; height:24px; color:red;">
+              <div>&#10060;</div>
+          </button>
+      </div>
+
+      <!-- User State -->
+      <div class="row">
+          <button onclick="changeState()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button>
+          State: {{ $user['state'] }}
+      </div>
+      <div class="row ml-5 mt-2">
+          <input id="ChangeStateInput" style="height:24px; display:none" value="{{ $user['state'] }}">
+          <button onclick="updateInfo()" id="ChangeStateCheck" style="display:none; width:24px; height:24px; color:green">
+              <div>&#x2713;</div>
+          </button>
+          <button id="ChangeStateX" style="display:none; width:24px; height:24px; color:red;">
+              <div>&#10060;</div>
+          </button>
+      </div>
+
+      <!-- User Zip Code -->
+      <div class="row">
+          <button onclick="changeZipCode()" type="button" class="btn btn-sm btn-danger mr-2" style="border-radius:0px; height:20px; font-size:10px;">Edit</button>
+          Zip Code: {{ $user['zipCode'] }}
+      </div>
+      <div class="row ml-5 mt-2">
+          <input id="ChangeZipCodeInput" style="height:24px; display:none" value="{{ $user['zipCode'] }}">
+          <button onclick="updateInfo()" id="ChangeZipCodeCheck" style="display:none; width:24px; height:24px; color:green">
+              <div>&#x2713;</div>
+          </button>
+          <button id="ChangeZipCodeX" style="display:none; width:24px; height:24px; color:red;">
+              <div>&#10060;</div>
+          </button>
+      </div>
+
       @if($user['is_admin'] == 1)
         <div>
          <a href="/addProduct"> New Item </a>
@@ -68,18 +135,24 @@
 
 <script>
     function updateInfo(){
+
       var newName = $("#ChangeUserInput").val();
       var newEmail = $("#ChangeEmailInput").val();
       var newAddress = $("#ChangeAddressInput").val();
+      var newAptNumber = $("#ChangeAptNumberInput").val();
+      var newCity = $("#ChangeCityInput").val();
+      var newState = $("#ChangeStateInput").val();
+      var newZip = $("#ChangeZipCodeInput").val();
 
       $.post('/updateProfile', { "id": {{ $user['id']}},
                                 "username": newName,
                                 "email": newEmail,
-                                "address": newAddress
-                              }, 
-                                function(data){
-                                  console.log(data);
-                                }
+                                "address": newAddress,
+                                "aptNumber": newAptNumber,
+                                "city": newCity,
+                                "state": newState,
+                                "zip": newZip
+                              }
       );
       window.location.reload();
     }
@@ -100,6 +173,30 @@
       $("#ChangeAddressInput").toggle();
       $("#ChangeAddressCheck").toggle();
       $("#ChangeAddressX").toggle();
+    }
+
+    function changeAptNumber() {
+        $("#ChangeAptNumberInput").toggle();
+        $("#ChangeAptNumberCheck").toggle();
+        $("#ChangeAptNumberX").toggle();
+    }
+
+    function changeCity() {
+        $("#ChangeCityInput").toggle();
+        $("#ChangeCityCheck").toggle();
+        $("#ChangeCityX").toggle();
+    }
+
+    function changeState() {
+        $("#ChangeStateInput").toggle();
+        $("#ChangeStateCheck").toggle();
+        $("#ChangeStateX").toggle();
+    }
+
+    function changeZipCode() {
+        $("#ChangeZipCodeInput").toggle();
+        $("#ChangeZipCodeCheck").toggle();
+        $("#ChangeZipCodeX").toggle();
     }
 
 </script>
