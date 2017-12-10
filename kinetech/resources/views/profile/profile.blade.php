@@ -52,6 +52,10 @@
          <a href="/updateProduct"> Update Item </a>
         </div>
       @endif
+
+      <div>
+          <a href="/viewOrders"> View My Orders! </a>
+      </div>
   </div>
 </div>
 
