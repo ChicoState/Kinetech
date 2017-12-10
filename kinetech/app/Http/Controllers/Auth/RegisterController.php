@@ -68,14 +68,27 @@ class RegisterController extends Controller
      */
     protected function create(Request $request)
     {
-        $username = $request->input('name');
-        $email = $request->input('email');
-        $password = $request->input('password');
+        $username   = $request->input('name');
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+        $address    = $request->input('address');
+        $aptNumber  = $request->input('aptNumber');
+        $city       = $request->input('city');
+        $state      = $request->input('state');
+        $zip        = $request->input('zipCode');
+
+        error_log($address);
+
         User::create([
             'name' => $username,
             'email' => $email,
             'password' => bcrypt($password),
             'is_admin' => 0,
+            'address'   => $address,
+            'aptNumber' => $aptNumber,
+            'city'      => $city,
+            'state'     => $state,
+            'zipCode'   => $zip
         ]);
         return view('home');
     }

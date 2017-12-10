@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('aptNumber', 5)->nullable();
             $table->string('city', 50)->nullable();
             $table->string('state', 50)->nullable();
-            $table->integer('zipCode')->nullable();
+            $table->string('zipCode')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();

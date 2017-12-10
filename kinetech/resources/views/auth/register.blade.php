@@ -61,6 +61,76 @@
                             </div>
                         </div>
 
+                        <!-- Address -->
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <label for="address" class="col-md-4 control-label">Address</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control" name="address">
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- Apt Number -->
+                        <div class="form-group{{ $errors->has('aptNumber') ? ' has-error' : '' }}">
+                            <label for="aptNumber" class="col-md-4 control-label">Apartment Number</label>
+
+                            <div class="col-md-6">
+                                <input id="aptNumber" type="text" class="form-control" name="aptNumber">
+
+                                @if ($errors->has('aptNumber'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('aptNumber') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- City -->
+                        <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 control-label">City</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="text" class="form-control" name="city">
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- State -->
+                        <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
+                            <label for="state" class="col-md-4 control-label">State</label>
+
+                            <div class="col-md-6">
+                                <input id="state" type="text" class="form-control" name="state">
+
+                                @if ($errors->has('state'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- Zip Code -->
+                        <div class="form-group{{ $errors->has('zipCode') ? ' has-error' : '' }}">
+                            <label for="zipCode" class="col-md-4 control-label">Zip Code</label>
+
+                            <div class="col-md-6">
+                                <input id="zipCode" type="text" class="form-control" name="zipCode">
+
+                                @if ($errors->has('zipCode'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('zipCode') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
