@@ -77,8 +77,6 @@ class RegisterController extends Controller
         $state      = $request->input('state');
         $zip        = $request->input('zipCode');
 
-        error_log($address);
-
         User::create([
             'name' => $username,
             'email' => $email,
