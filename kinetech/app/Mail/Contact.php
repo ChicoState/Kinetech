@@ -1,4 +1,9 @@
 <?php
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ *  Class for handling/sending email post requests. 
+ */
 
 namespace App\Mail;
 

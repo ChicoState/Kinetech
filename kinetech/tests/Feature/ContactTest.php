@@ -1,6 +1,8 @@
 <?php
 /*
- * @author Jordan Laney jlaney4@mail.csuchico.edu
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Feature tests for the email contact feature.
  */
 
 namespace Tests\Unit;

@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Migration file to define the products table for the database.
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;

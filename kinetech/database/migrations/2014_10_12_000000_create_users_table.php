@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Migration file to define the users table for the database.
+ */
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -7,7 +11,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateUsersTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the users table migration.
      *
      * @return void
      */
