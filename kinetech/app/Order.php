@@ -24,9 +24,22 @@ class Order extends Model
         ]);
     }
 
-    public function getCartID($orderID)
+    public static function getCartID($orderID)
     {
         return DB::table('orders')->select('cart_id')->where('order_id', $orderID)->first();
+    }
+
+    public static function getAllOrders($userID)
+    {
+        $orders = DB::table('orders')
+            ->join('carts', 'orders.cart_id', '=', 'carts.cart_id')
+            ->select('carts.price', 'carts.totalItems', 'orders.created_at', 'orders.order_id')
+            ->where('orders.user_id', $userID)->get();
+        if(isset($orders) && !empty($orders))
+        {
+            return $orders;
+        }
+        else return null;
     }
 
 }

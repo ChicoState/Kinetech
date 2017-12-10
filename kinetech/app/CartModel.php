@@ -13,13 +13,20 @@ class CartModel extends Model
         $cart = new \App\Cart($oldCart);
         $price = $cart->getTotalPrice();
         $quant = $cart->getTotalQuantity();
-        $items = serialize($cart->getItems());
+        $items = [];
+        foreach($cart->items as $item)
+        {
+            $itemArr = ['sku' => $item['item']->sku,
+                        'qty' => $item['qty'],
+                ];
+            array_push($items, $itemArr );
+        }
 
         DB::table('carts')->insert([
             'user_id' => $userID,
             'price'=> $price,
             'totalItems' => $quant,
-            'data' => $items,
+            'data' => json_encode($items),
         ]);
         return DB::table('carts')->max('cart_id');
     }

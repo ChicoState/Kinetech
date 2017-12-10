@@ -52,6 +52,8 @@ Route::post('/addProduct', 'ProductsController@addProduct');
 Route::get('/updateProduct/{id}', 'ProductsController@updateProductPage');
 Route::post('/updateProduct', 'ProductsController@updateProduct');
 Route::get('/addOrder', 'OrderController@addOrder');
+Route::get('/viewOrder/{orderID}', 'OrderController@viewOrder');
+Route::get('/viewOrders' , 'OrderController@viewOrders');
 
 /*
  * Return home view when project root requested

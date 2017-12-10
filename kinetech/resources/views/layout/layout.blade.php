@@ -59,6 +59,7 @@
     @yield('received')
     @yield('productFilter')
     @yield('cartStats')
+    @yield('orderStats')
       <div class="mx-auto">
         @yield('content')
         @yield('products')
@@ -66,6 +67,8 @@
         @yield('adminProfileView')
         @yield('newProduct')
         @yield('updateProduct')
+        @yield('orderSummary')
+        @yield('orderView')
       </div>
 
   </main>
