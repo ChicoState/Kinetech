@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 
@@ -71,12 +72,31 @@ class RegisterController extends Controller
         $username = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-        User::create([
-            'name' => $username,
-            'email' => $email,
-            'password' => bcrypt($password),
-            'is_admin' => 0,
-        ]);
-        return view('home');
+        $confirmPassword = $request->input('password_confirmation');
+
+        /**
+         * Check to see if the passwords patch
+         * If they do not, return the email and username that they
+         * tried to register
+         */
+        if($password !== $confirmPassword)
+        {
+            return Redirect::back()
+                ->withInput()
+                ->withErrors([
+                    'registerPassword' => 'Passwords do not match!'
+                ]);
+        }
+        else
+        {
+            User::create([
+                'name' => $username,
+                'email' => $email,
+                'password' => bcrypt($password),
+                'is_admin' => 0,
+            ]);
+            return view('home');
+        }
+
     }
 }
