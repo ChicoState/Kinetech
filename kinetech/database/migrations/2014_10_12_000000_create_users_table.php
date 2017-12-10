@@ -17,7 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('address', 50)->default('1234 address ave');
+            $table->string('address', 50)->nullable();
+            $table->string('aptNumber', 5)->nullable();
+            $table->string('city', 50)->nullable();
+            $table->string('state', 50)->nullable();
+            $table->integer('zipCode')->nullable();
             $table->string('password');
             $table->boolean('is_admin')->default(false);
             $table->rememberToken();

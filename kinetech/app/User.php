@@ -30,22 +30,30 @@ class User extends Authenticatable
 
     /**
      * Update the name, email, and address of a user
-     * @param  Array $user An array of the user attributes we are updating. 
-     * @return None
+     * @param  Array $user An array of the user attributes we are updating.
+     * @return void
      * @author Elliott Allmann <elliott.allmann@gmail.com>
      */
-    public static function updateAdminUser($user)
+    public static function updateUser($user)
     {
         //check if admin
-        $id = $user['id'];
-        $name = $user['name'];
-        $email = $user['email'];
-        $address = $user['address'];
+        $id         = $user['id'];
+        $name       = $user['name'];
+        $email      = $user['email'];
+        $address    = $user['address'];
+        $aptNumber  = $user['aptNumber'];
+        $city       = $user['city'];
+        $state      = $user['state'];
+        $zip        = $user['zipCode'];
 
         DB::table('users')->where('id', $id)->update([
             'name' => $name,
             'email' => $email,
             'address' => $address,
+            'aptNumber' => $aptNumber,
+            'city'      => $city,
+            'state'     => $state,
+            'zipCode'   => $zip,
         ]);        
     }
 }
