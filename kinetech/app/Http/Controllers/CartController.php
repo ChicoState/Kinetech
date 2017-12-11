@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use phpDocumentor\Reflection\Types\Integer;
 use Session;
 use Illuminate\Http\Request;
 use App\Cart;
@@ -43,6 +44,7 @@ class CartController extends Controller
      * Adds an item to the cart
      * @param Request $request
      * @param String  $sku     The unique identifier of the product to add to the cart.
+     * @return Integer the total number of items in the cart.
      */
     public function addToCart(Request $request, $sku)
     {

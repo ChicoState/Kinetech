@@ -1,5 +1,9 @@
 <?php
-
+/*
+ * @author Jordan Laney <jlaney4@mail.csuchico.edu>
+ *
+ * Acceptance testing for contact email page. 
+ */
 
 class ContactCest
 {
@@ -45,6 +49,4 @@ class ContactCest
         $I->click('submit');
         $I->wait(10);
     }
-
-
 }
