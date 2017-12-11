@@ -71,6 +71,11 @@ ul {
 	float: right;
 }
 
+.orderStats{
+	background-color: #E8E8E8;
+	float: right;
+	margin-top: 20px;
+}
 .productFilterPadding {
 	padding-top: 10vh;
 }
