@@ -63,7 +63,6 @@
               <div class="ktAuthError">{{ $error }}</div>
           @endforeach
       @endif
-      @yield('home')
     <!-- Yield view from 'views/about/about.blade.php' if '/about' is requested -->
     @yield('about')
     @yield('profile')

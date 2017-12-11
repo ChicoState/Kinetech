@@ -42,21 +42,31 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div>
+      <iframe width="427" height="240" src="https://www.youtube.com/embed/HfsH5mM9rxA" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+      <iframe width="427" height="240" src="https://www.youtube.com/embed/IPSRl2NfryI" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
 
 <h2 class="mt-5" style="text-align:center;">
   iPhone7 Case Prototype
 </h2>
 
-<div class="mb-5" style="background-color:#000006">
+
+<div class="mb-5">
   <div class="row">
     <div class="col">
-      <img src="{{url('imgs/Iphone7_4.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block " alt="Iphone Prototype" align="right" height="15%;" width="135px">
+      <img src="{{url('imgs/Iphone7_4.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block" alt="Iphone Prototype" align="right" width="135px">
     </div>
     <div class="col">
-      <img src="{{url('imgs/Iphone7_1.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block " alt="Iphone Prototype" align="middle" width="292px;">
+      <img src="{{url('imgs/Iphone7_1.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block" alt="Iphone Prototype" align="middle" width="292px;">
     </div>
     <div class="col">
-      <img src="{{url('imgs/Iphone7_2.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block " alt="Iphone Prototype" align="left" width="175px">
+      <img src="{{url('imgs/Iphone7_2.JPG')}}" class="img-fluid rounded py-5 mx-auto d-block" alt="Iphone Prototype" align="left" width="175px">
     </div>
   </div>
 </div>

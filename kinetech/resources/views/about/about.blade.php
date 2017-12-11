@@ -2,10 +2,10 @@
 @section('about')
     <div class="row text-center">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 aboutHeader">
-            <h1 class="text-info font-200 font-4-em">The Team</h1>
+            <h1 class="text-info font-200 font-4-em mb-5">The Team</h1>
         </div>
         <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face1.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/andyRo.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Andy Do</h3></a>
@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face2.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/caseyRoof.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Casey Roof</h3></a>
@@ -42,7 +42,7 @@
     </div>
     <div class="row text-center">
         <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face3.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/davidHines.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>David Hines</h3></a>
@@ -57,14 +57,17 @@
             </ul>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face4.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/elliottAllmann.jpeg')}}">
             <ul>
                 <li class ="member">
                     <a><h3>Elliott Allmann</h3></a>
                     <ul class ="hide">
                         <li>Elliott Allmann is a senior at California State University,
                             Chico, where he is working on attaining his BS in
-                            Computer Science.</li>
+                            Computer Science. He has 1 year of PHP development experience,
+                            including an internship during the summer of 2017 with SAIC,
+                            working on the space-track.org website.
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -72,7 +75,7 @@
     </div>
     <div class="row text-center">
         <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face5.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/face5.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Jordan Laney</h3></a>
@@ -85,7 +88,7 @@
             </ul>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face6.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/maxSchimm.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Max Schimm</h3></a>
@@ -100,7 +103,7 @@
     </div>
     <div class="row text-center">
         <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face7.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/brianSullivan.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Brian Sullivan</h3></a>
@@ -113,7 +116,7 @@
             </ul>
         </div>
         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded" alt="member image" src="{{url('imgs/face8.jpg')}}" style="width:200;height:200">
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/myungjinBae.jpg')}}">
             <ul>
                 <li class ="member">
                     <a><h3>Myungjin Bae</h3></a>
