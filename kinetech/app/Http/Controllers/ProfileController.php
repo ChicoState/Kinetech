@@ -11,14 +11,24 @@ use App\Storage\logs\laravel;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
 
+/**
+ * @author Max Schimm <mjschimm@gmail.com>
+ * Profile Controller
+ */
+
 class ProfileController extends Controller
 {
 	/*
      * Return profile view from 'views/profile/profile.blade.php'
-     *
      * @return view('profile.profile');
  	 */
 
+
+    /**
+     * Stores all of the currently logged-in user's information
+     * from User model and passes it to the view.
+     * @return Profile/profile  The view that loads user's information
+     */
     public function index()
     {
             $user = [
@@ -35,6 +45,10 @@ class ProfileController extends Controller
             return view('profile.profile', ['user' => $user]);
     }
 
+    /**
+     * Updates user profile information
+     * @param HttpRequest $request
+     */
     public function updateProfile(Request $request)
     {
         $id        = $request->input('id');
@@ -58,6 +72,8 @@ class ProfileController extends Controller
             'zipCode'   => $zip,
         ]);
 
+        //If email is set to update, make sure it 
+        //has not been previously used.
         if(!$updateSuccess)
         {
             return Redirect::back()

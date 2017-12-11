@@ -1,8 +1,6 @@
 @extends('layout.layout')
 @section('profile')
-<!--<h1 class="row justify-content-center">
-  Welcome
-</h1>-->
+
 <h3 class="mt-4" style="color:#3280AA;"> Hello, {{ ucfirst($user['name']) }} </h3>
 
 <div class="row mt-4 ml-1">
