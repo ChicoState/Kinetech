@@ -73,6 +73,7 @@ class RegisterController extends Controller
         $username   = $request->input('name');
         $email      = $request->input('email');
         $password   = $request->input('password');
+        $confirmPassword = $request->input('password_confirmation');
         $address    = $request->input('address');
         $aptNumber  = $request->input('aptNumber');
         $city       = $request->input('city');
