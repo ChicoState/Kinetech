@@ -11,6 +11,12 @@ use App\Storage\logs\laravel;
 use App\User;
 use Illuminate\Support\Facades\Redirect;
 
+/**
+ * @author Max Schimm <mschimm@mail.csuchico.edu>
+ * @author Elliott Allmann <elliott.allmann@gmail.com>
+ * Class ProfileController
+ * @package App\Http\Controllers
+ */
 class ProfileController extends Controller
 {
 	/*
@@ -18,7 +24,6 @@ class ProfileController extends Controller
      *
      * @return view('profile.profile');
  	 */
-
     public function index()
     {
             $user = [
@@ -35,6 +40,11 @@ class ProfileController extends Controller
             return view('profile.profile', ['user' => $user]);
     }
 
+    /**
+     * Update the users profile
+     * @param Request $request
+     * @return mixed
+     */
     public function updateProfile(Request $request)
     {
         $id        = $request->input('id');
@@ -47,7 +57,7 @@ class ProfileController extends Controller
         $zip       = $request->input('zip');
 
 
-        User::updateUser([
+        $updateSuccess = User::updateUser([
             'id'        => $id,
             'name'      => $name,
             'email'     => $email,
@@ -58,6 +68,7 @@ class ProfileController extends Controller
             'zipCode'   => $zip,
         ]);
 
+        //if there was an error, alert the user.
         if(!$updateSuccess)
         {
             return Redirect::back()

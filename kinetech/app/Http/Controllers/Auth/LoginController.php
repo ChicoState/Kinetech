@@ -58,6 +58,7 @@ class LoginController extends Controller
             }       
         else
         {
+            //alert the user if there were errors.
             return Redirect::back()
                 ->withInput($request->only('email', 'remember'))
                 ->withErrors([

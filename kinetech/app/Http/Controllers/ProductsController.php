@@ -7,6 +7,7 @@ use Illuminate\Http\UploadedFile;
 use App\Products;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
 
 /**
  * @author Elliott Allmann <elliott.allmann@gmail.com>
@@ -47,7 +48,8 @@ class ProductsController extends Controller
 
     /**
      * Adds a new product to the database
-     * @param HttpRequest $request
+     * @param Request $request
+     * @return Redirect
      */
     public function addProduct(Request $request)
     {
@@ -59,8 +61,13 @@ class ProductsController extends Controller
         $price = $request->input('price');
         $color = $request->input('color');
 
+        //store the image on the server, and then return the image path
         $imagePath = $image->store('/imgs', 'public');
+
+        //@TODO: remove this.
         error_log($imagePath);
+
+        //add the product into the database.
         $productID = Products::addProduct([
             'sku' => $sku,
             'desc' => $desc,
