@@ -75,7 +75,7 @@
     </div>
     <div class="row text-center">
         <div class="offset-xs-2 offset-sm-2 offset-md-2 offset-lg-2 col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/face5.jpg')}}" >
+            <img class="img-fluid rounded ktMemberImage" alt="member image" src="{{url('imgs/teamImages/jordanLaney.jpg')}}" >
             <ul>
                 <li class ="member">
                     <a><h3>Jordan Laney</h3></a>
