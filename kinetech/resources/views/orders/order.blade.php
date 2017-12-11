@@ -1,6 +1,6 @@
 @extends('layout.layout')
 @section('orderView')
-    <div class="col-lg-8">
+    <div class="col-lg-8 pt-10">
         <h4> My Order </h4>
         @foreach($products as $product)
             <ul class="product">
@@ -32,7 +32,7 @@
 @endsection
 @section('orderStats')
 
-    <div class="cartStats container col-xs-4 col-md-2 mx-1">
+    <div class="orderStats container col-xs-4 col-md-2 mx-1">
         @if( $totalPrice >= 0.01)
             <p> {{ $totalPrice }} </p>
         @else
