@@ -107,3 +107,9 @@ ul {
 	color: red;
 	font-size: 18px;
 }
+
+.ktMemberImage{
+    height:300px; !important;
+    width: 300px; !important;
+}
+
