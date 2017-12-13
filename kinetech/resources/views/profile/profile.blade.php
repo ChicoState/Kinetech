@@ -123,7 +123,7 @@
       @if($user['is_admin'] == 1)
         <div>
          <a href="/addProduct"> New Item </a>
-         <a href="/updateProduct"> Update Item </a>
+ <!--    <a href="/updateProduct"> Update Item </a>   -->
         </div>
       @endif
 

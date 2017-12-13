@@ -1,5 +1,6 @@
 <?php
-
+include '/../c3.php';
+define('MY_APP_STARTED', true);
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
