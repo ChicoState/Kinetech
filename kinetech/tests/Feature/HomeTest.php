@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -11,12 +11,6 @@ class HomeTest extends TestCase
     {
         $view = $this->call('GET', '/');
         $view->assertSuccessful();
-    }
-
-    public function testHomeRouteStatus200()
-    {
-        $view = $this->call('GET', '/');
-        $view->assertStatus(200);
     }
 
     public function testProperPageStrings()

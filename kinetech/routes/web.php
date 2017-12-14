@@ -35,7 +35,7 @@ Route::get('/removeAll/{id}', ['uses' => 'CartController@removeAll',
 
 Route::get('/resetCart', 'CartController@resetCart');
 Route::post('/addCart', 'CartController@addCart');
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 Route::get('/profile', 'ProfileController@index');
 
 Route::post('/login', 'Auth\LoginController@login');

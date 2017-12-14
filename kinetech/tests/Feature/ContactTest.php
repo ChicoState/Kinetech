@@ -5,7 +5,7 @@
  * Feature tests for the email contact feature.
  */
 
-namespace Tests\Unit;
+namespace Tests\Feature;
 
 use Tests\TestCase;
 

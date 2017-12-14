@@ -33,6 +33,7 @@ class ContactCest
     public function testInvalidInputs(AcceptanceTester $I)
     {
         $I->wantTo('invalid inputs for email and content for contacts page');
+        $I->amOnPage('/contact');
         $I->fillField('senderEmail','donkey');
         $I->fillField('senderName','Kong');
         $I->fillField('senderSubject','Super Nintendo');

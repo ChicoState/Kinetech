@@ -8,3 +8,8 @@ actor_suffix: Tester
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+coverage:
+    enabled: true
+    include:
+        - app/*
+error_level: "E_ALL & ~E_STRICT & ~E_DEPRECATED"

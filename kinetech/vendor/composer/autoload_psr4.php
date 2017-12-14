@@ -6,7 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src'),
+    'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/type-resolver/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/reflection-common/src'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
@@ -48,6 +48,7 @@ return array(
     'Egulias\\EmailValidator\\' => array($vendorDir . '/egulias/email-validator/EmailValidator'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
+    'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/lib/Doctrine/Common/Lexer'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib/Doctrine/Common/Inflector'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),

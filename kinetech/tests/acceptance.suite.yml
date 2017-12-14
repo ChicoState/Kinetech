@@ -7,7 +7,7 @@ class_name: AcceptanceTester
 modules:
     enabled:
         - WebDriver:
-            url: 'http://kinetech.local/' # put your local url
+            url: 'http://kinetechofficial.com/' # put your local url
             port: 9515
             browser: chrome
         - Laravel5:
