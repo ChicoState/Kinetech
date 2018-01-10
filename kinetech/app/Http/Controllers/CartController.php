@@ -96,6 +96,12 @@ class CartController extends Controller
         return redirect()->route('cartView');
     }
 
+    /**
+     * @brief API function to clear the cart.
+     * @details API function to quickly clear the cart. We might want to remove this.
+     * @return Home Page.
+     */
+    /*
     public function resetCart()
     {
         $oldCart = Session::get('cart');
@@ -103,4 +109,5 @@ class CartController extends Controller
         Session::put('cart', $oldCart);
         return view('splash');
     }
+    /**/
 }

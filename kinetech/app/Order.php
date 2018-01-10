@@ -6,11 +6,20 @@ use Illuminate\Support\Facades\DB;
 use DateTime;
 use Auth;
 
-
+/**
+ * @author Elliott Allmann <elliott.allmann@gmail.com>
+ * Class Order
+ * @package App
+ */
 class Order extends Model
 {
     protected $primaryKey = 'order_id';
 
+    /**
+     * Create a new order in the database.
+     * @param $userID
+     * @param $cartID
+     */
     public static function newOrder($userID, $cartID)
     {
         DB::table('orders')->insert([
@@ -24,11 +33,21 @@ class Order extends Model
         ]);
     }
 
+    /**
+     * Get the ID of the cart of a specific order.
+     * @param $orderID
+     * @return mixed
+     */
     public static function getCartID($orderID)
     {
         return DB::table('orders')->select('cart_id')->where('order_id', $orderID)->first();
     }
 
+    /**
+     * Get all orders that the user has placed.
+     * @param $userID
+     * @return Collection of orders or null
+     */
     public static function getAllOrders($userID)
     {
         $orders = DB::table('orders')
